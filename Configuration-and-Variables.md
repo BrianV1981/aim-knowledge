@@ -6,6 +6,9 @@ Almost every behavior in A.I.M. is driven by a configurable variable exposed in 
 A.I.M. is **Provider-Agnostic**. While Ollama is the default for free, offline local processing, you are not locked into it. The `aim tui` interface allows you to swap models, providers, and endpoints for both the Conscious Agent and the Subconscious Daemon.
 
 ### 1. LLM & Cognitive Routing (Per-Tier Customization)
+
+> **Important Note on the "Primary Brain":** The interactive chat model you talk to daily is governed exclusively by your global Gemini CLI settings (`~/.gemini/settings.json`). The "Primary Brain" configured in the `aim tui` serves as an explicit fallback model for headless background scripts (like `aim audit`, `aim scrape`, or crash recoveries) that execute autonomously under the hood.
+
 *   **Providers:** Local (Ollama/Llama.cpp), Google Gemini API, OpenAI, Anthropic, Custom OAuth.
 *   **Models:** Swappable per role (e.g., `gemini-3.1-pro-preview` for the Conscious Agent, `gemma4:e4b` for the Subconscious Daemon/Tier 1).
 *   **Endpoints & Auth:** Custom API URLs and Auth Types (OAuth, API Key, None).
