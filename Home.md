@@ -221,7 +221,7 @@ For the complete deployment manual including Obsidian Vault setup, see the [Inst
 
 - [[The-Master-Schema]] — Full architectural map
 - [[Technical-Specification]] — Metaphor-free engineering specs
-- [[Benchmark-Render|Benchmarks]] — Repeatable, raw-data-backed comparisons
+- [Benchmarks](Benchmark-Render) — Repeatable, raw-data-backed comparisons
 
 ---
 

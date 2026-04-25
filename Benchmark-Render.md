@@ -1,6 +1,6 @@
 # Benchmark: The Render.com "Vibe Coding" Test (March 24, 2026)
 
-**The Context:** In early 2025, Render.com published a [highly publicized benchmark](https://render.com/blog/ai-coding-agents-benchmark) comparing the top AI coding agents (Cursor, Claude Code, Gemini CLI, and Codex). They evaluated the agents on a "Greenfield [[Benchmark-Vibe-Coding|Vibe Coding]]" task: building a full-stack Next.js URL shortener from a blank directory. 
+**The Context:** In early 2025, Render.com published a [highly publicized benchmark](https://render.com/blog/ai-coding-agents-benchmark) comparing the top AI coding agents (Cursor, Claude Code, Gemini CLI, and Codex). They evaluated the agents on a "Greenfield [Vibe Coding](Benchmark-Vibe-Coding)" task: building a full-stack Next.js URL shortener from a blank directory. 
 - **Cursor** won the original test with a **9/10** (it wrote good code, but required the human to manually feed back terminal errors regarding the Dockerfile).
 - **Gemini CLI (Vanilla)** scored a **3/10**.
 

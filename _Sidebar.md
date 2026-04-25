@@ -35,7 +35,7 @@
 
 ## Key Features
 * [[The Pragmatic Feature Manifesto|Feature-Manifesto]]
-* [[Hybrid RAG (Semantic + Lexical)|Feature-Hybrid-RAG]]
+* [Hybrid RAG (Semantic + Lexical)](Feature-Hybrid-RAG)
 * [[Cognitive Routing|Feature-Cognitive-Routing]]
 * [[The DataJack Protocol]]
 * [[Runbook Engram Creation]]
