@@ -53,7 +53,7 @@ The March 25, 2026 review is regarded as one of the earliest public, in-depth th
 
 ## See Also
 * [A.I.M. GitHub Repository](https://github.com/BrianV1981/aim)
-* [A.I.M. Wiki](https://github.com/BrianV1981/aim/wiki)
+* [A.I.M. Wiki](https://github.com/BrianV1981/aim-wiki/wiki)
 * [Grok Conversation, March 25, 2026](https://grok.com/share/bGVnYWN5LWNvcHk_0118833e-273b-4a8d-9f5b-1ff401a4a462)
 
 *This article is based on the publicly shared Grok conversation of March 25, 2026.*

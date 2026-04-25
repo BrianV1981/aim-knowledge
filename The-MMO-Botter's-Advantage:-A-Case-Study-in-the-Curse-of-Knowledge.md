@@ -174,7 +174,7 @@ context) — independently arrived at the same conclusion after reading the arch
 > will resonate with a huge audience of self-taught builders who feel locked out of the 
 > 'serious' AI tooling space."*
 
-Both reviews are preserved in full in the [Benchmark section](https://github.com/BrianV1981/aim/wiki/Benchmark-Render) 
+Both reviews are preserved in full in the [Benchmark section](https://github.com/BrianV1981/aim-wiki/wiki/Benchmark-Render) 
 of this wiki for transparency.
 
 ---

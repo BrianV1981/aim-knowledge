@@ -20,11 +20,11 @@
 >
 > **This project is radically transparent.** It is an Alpha Proof-of-Concept built entirely via "[vibe coding](Benchmark-Vibe-Coding)" — using the very exoskeleton it provides. The commit/issue history shows the iterations, the bug storms, the live patches against real API outputs. There is no VC-funded black box here ***cough*** Cursor ***cough***. The plumbing is being battle-tested in public, and the architecture proves that a structured AI workflow can turn a non-coder into a systems architect.
 
-📖 **Full Documentation:** [Read the Official GitHub Wiki](https://github.com/BrianV1981/aim/wiki)
-🚀 **Getting Started:** [Read the Step-by-Step User Guide](https://github.com/BrianV1981/aim/wiki/User-Guide)
+📖 **Full Documentation:** [Read the Official GitHub Wiki](https://github.com/BrianV1981/aim-wiki/wiki)
+🚀 **Getting Started:** [Read the Step-by-Step User Guide](https://github.com/BrianV1981/aim-wiki/wiki/User-Guide)
 ⚙️ **Configuration:** [Configuration & Variables](Configuration-and-Variables)
-🎓 **Day 1 Tutorial:** [Build Your First Feature (Quickstart)](https://github.com/BrianV1981/aim/wiki/Quickstart-Tutorial)
-🛠️ **Engineers:** Hate biological metaphors? [Read the metaphor-free Technical Spec here](https://github.com/BrianV1981/aim/wiki/Technical-Specification).
+🎓 **Day 1 Tutorial:** [Build Your First Feature (Quickstart)](https://github.com/BrianV1981/aim-wiki/wiki/Quickstart-Tutorial)
+🛠️ **Engineers:** Hate biological metaphors? [Read the metaphor-free Technical Spec here](https://github.com/BrianV1981/aim-wiki/wiki/Technical-Specification).
 
 ---
 
@@ -213,15 +213,15 @@ aim init
 aim tui  # Set your LLM providers, routing, and guardrails
 ```
 
-For the complete deployment manual including Obsidian Vault setup, see the [Installation Guide](https://github.com/BrianV1981/aim/wiki/Installation-Guide).
+For the complete deployment manual including Obsidian Vault setup, see the [Installation Guide](https://github.com/BrianV1981/aim-wiki/wiki/Installation-Guide).
 
 ---
 
 ## 📖 Core Documentation
 
-- [The Master Schema](https://github.com/BrianV1981/aim/wiki/The-Master-Schema) — Full architectural map
-- [Technical Specification](https://github.com/BrianV1981/aim/wiki/Technical-Specification) — Metaphor-free engineering specs
-- [Benchmarks](https://github.com/BrianV1981/aim/wiki/Benchmark-Render) — Repeatable, raw-data-backed comparisons
+- [The Master Schema](https://github.com/BrianV1981/aim-wiki/wiki/The-Master-Schema) — Full architectural map
+- [Technical Specification](https://github.com/BrianV1981/aim-wiki/wiki/Technical-Specification) — Metaphor-free engineering specs
+- [Benchmarks](https://github.com/BrianV1981/aim-wiki/wiki/Benchmark-Render) — Repeatable, raw-data-backed comparisons
 
 ---
 
