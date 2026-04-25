@@ -1,0 +1,194 @@
+{
+  "main": {
+    "id": "eb9bfa3402578b29",
+    "type": "split",
+    "children": [
+      {
+        "id": "43348153f50a6a6d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "90596c6011307ab1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "A.I.M.:-Actual-Intelligent-Memory-Review-(Grok-Conversation,-March-25,-2026).md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "A.I.M.:-Actual-Intelligent-Memory-Review-(Grok-Conversation,-March-25,-2026)"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "2b0634142a79e0f6",
+    "type": "split",
+    "children": [
+      {
+        "id": "93c61cd315fdb6a4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8f8a2c56f0e8e1ef",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "01b74148dec1d74c",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "d66ccce33b12f325",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "aedca2a0c8dd367a",
+    "type": "split",
+    "children": [
+      {
+        "id": "5e97cdb1d82868f5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "28817cbdc76d092f",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "A.I.M.:-Actual-Intelligent-Memory-Review-(Grok-Conversation,-March-25,-2026).md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for A.I.M.:-Actual-Intelligent-Memory-Review-(Grok-Conversation,-March-25,-2026)"
+            }
+          },
+          {
+            "id": "208b93a8e5ccc0cc",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "A.I.M.:-Actual-Intelligent-Memory-Review-(Grok-Conversation,-March-25,-2026).md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from A.I.M.:-Actual-Intelligent-Memory-Review-(Grok-Conversation,-March-25,-2026)"
+            }
+          },
+          {
+            "id": "0581480c4f4492e0",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "e5fed23a8f1d0e35",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "17e85b02c25e4690",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "A.I.M.:-Actual-Intelligent-Memory-Review-(Grok-Conversation,-March-25,-2026).md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of A.I.M.:-Actual-Intelligent-Memory-Review-(Grok-Conversation,-March-25,-2026)"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "90596c6011307ab1",
+  "lastOpenFiles": [
+    "AI-Prompt-Ledger.md",
+    "Atomic-Architecture.md",
+    "A.I.M.-Prompt-Injection-Map.md",
+    "_Sidebar.md",
+    "_Footer.md"
+  ]
+}
