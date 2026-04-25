@@ -72,10 +72,10 @@ When a coding session concludes, the Reincarnation pipeline wakes up and does tw
 
 **The Federated Brain (The Archipelago Model):** 
 To eliminate the scaling bottleneck of a single monolithic database, A.I.M. segregates memory across a federated fleet of purpose-built SQLite databases:
-*   [`project_core.db`](https://github.com/BrianV1981/aim/tree/main/archive): The live, hyper-local context of your active repository (flight recorders and embedded wiki lore).
-*   [`global_skills.db`](https://github.com/BrianV1981/aim/tree/main/archive): Universal, cross-project scripts and tool definitions.
-*   [`datajack_library.db`](https://github.com/BrianV1981/aim/tree/main/archive): Massive, read-only documentation cartridges (e.g., the entire Django framework).
-*   [`subagent_ephemeral.db`](https://github.com/BrianV1981/aim/tree/main/archive): Isolated scratchpads for disposable subagents.
+*   **`project_core.db`**: The live, hyper-local context of your active repository (flight recorders and embedded wiki lore).
+*   **`global_skills.db`**: Universal, cross-project scripts and tool definitions.
+*   **`datajack_library.db`**: Massive, read-only documentation cartridges (e.g., the entire Django framework).
+*   **`subagent_ephemeral.db`**: Isolated scratchpads for disposable subagents.
 
 **The Obsidian Bridge & Remote Fleet:** 
 Because the ultimate source of truth is a pure, native Markdown Wiki directory (`wiki/`), A.I.M. allows you to offload the heavy LLM memory jobs to a secondary server. You simply sync the project folder to an Obsidian Vault, and a headless A.I.M. daemon on your local GPU rig watches the `wiki/_ingest/` folder, compiles the memory, and syncs the updated Wiki pages back to your primary laptop—giving you a real-time, visual Obsidian knowledge graph across machines.
