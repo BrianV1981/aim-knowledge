@@ -8,10 +8,10 @@
 ### 🗄️ Raw Telemetry Data (Independent Verification)
 The raw, unedited JSON session transcripts from the Gemini CLI for all four runs are committed directly to the main A.I.M. repository. You can verify every single API call, tool execution, and token count by reviewing the source logs here:
 
-*   [Control Flash Transcript](benchmarks/raw_logs/control_flash.json)
-*   [Control Pro Transcript](benchmarks/raw_logs/control_pro.json)
-*   [Matrix Flash Transcript](benchmarks/raw_logs/matrix_flash.json)
-*   [Matrix Pro Transcript](benchmarks/raw_logs/matrix_pro.json)
+*   [Control Flash Transcript](https://github.com/BrianV1981/aim-wiki/blob/master/benchmarks/raw_logs/control_flash.json)
+*   [Control Pro Transcript](https://github.com/BrianV1981/aim-wiki/blob/master/benchmarks/raw_logs/control_pro.json)
+*   [Matrix Flash Transcript](https://github.com/BrianV1981/aim-wiki/blob/master/benchmarks/raw_logs/matrix_flash.json)
+*   [Matrix Pro Transcript](https://github.com/BrianV1981/aim-wiki/blob/master/benchmarks/raw_logs/matrix_pro.json)
 
 ---
 
@@ -20,7 +20,7 @@ To mathematically isolate the value of the A.I.M. exoskeleton from raw LLM intel
 > `"Read the TASK.md file located in this directory. Diagnose and fix the described bug within the django_repo codebase. Execute your full mandated workflow. Do not stop until the objective is complete."`
 
 ### The "Trap" (The Nuance of the Test)
-The target issue ([`TASK.md`](benchmarks/raw_logs/DJANGO_TASK.md)) mandated the agent to fix a bug where `URLValidator` rejected uppercase IPv6 literals. 
+The target issue ([`TASK.md`](https://github.com/BrianV1981/aim-wiki/blob/master/benchmarks/raw_logs/DJANGO_TASK.md)) mandated the agent to fix a bug where `URLValidator` rejected uppercase IPv6 literals. 
 However, because the test environments cloned the `stable/2.2.x` branch of Django, **this specific bug was already mitigated in the codebase** (the compiled regex uses `re.IGNORECASE`). 
 
 Therefore, the only way to successfully pass this benchmark was to *prove* the code was already safe via TDD and refrain from breaking working code.
@@ -67,8 +67,8 @@ This proves that rigid GitOps hierarchies provide a critical layer of **Predicta
 
 ## 4. Transparency: System Prompts
 To ensure full transparency and reproducibility, the exact system prompts (`GEMINI.md`) used to constrain the agents during the benchmarks have been physically extracted from the project folders and permanently preserved in the repository:
-*   [The Control Prompt](benchmarks/raw_logs/DJANGO_CONTROL_PROMPT.md) *(Used in Run 1 and Run 2 Control environments)*
-*   [The Matrix Prompt](benchmarks/raw_logs/DJANGO_MATRIX_PROMPT.md) *(Used in Run 1 and Run 4 Matrix environments)*
+*   [The Control Prompt](https://github.com/BrianV1981/aim-wiki/blob/master/benchmarks/raw_logs/DJANGO_CONTROL_PROMPT.md) *(Used in Run 1 and Run 2 Control environments)*
+*   [The Matrix Prompt](https://github.com/BrianV1981/aim-wiki/blob/master/benchmarks/raw_logs/DJANGO_MATRIX_PROMPT.md) *(Used in Run 1 and Run 4 Matrix environments)*
 
 ---
 

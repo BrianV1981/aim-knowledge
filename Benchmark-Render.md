@@ -1,10 +1,10 @@
 # Benchmark: The Render.com "Vibe Coding" Test (March 24, 2026)
 
-**The Context:** In early 2025, Render.com published a [highly publicized benchmark](https://render.com/blog/ai-coding-agents-benchmark) comparing the top AI coding agents (Cursor, Claude Code, Gemini CLI, and Codex). They evaluated the agents on a "Greenfield [Vibe Coding](Benchmark-Vibe-Coding)" task: building a full-stack Next.js URL shortener from a blank directory. 
+**The Context:** In early 2025, Render.com published a [highly publicized benchmark](https://render.com/blog/ai-coding-agents-benchmark) comparing the top AI coding agents (Cursor, Claude Code, Gemini CLI, and Codex). They evaluated the agents on a "Greenfield [[Benchmark-Vibe-Coding|Vibe Coding]]" task: building a full-stack Next.js URL shortener from a blank directory. 
 - **Cursor** won the original test with a **9/10** (it wrote good code, but required the human to manually feed back terminal errors regarding the Dockerfile).
 - **Gemini CLI (Vanilla)** scored a **3/10**.
 
-**The Hypothesis:** An AI agent operating inside the A.I.M. Exoskeleton (with access to the [Engram DB](Layered-Engram-Architecture) and forced into an autonomous TDD loop) will significantly outperform both the Vanilla base model and the industry leader (Cursor) by autonomously debugging its own terminal errors without human intervention.
+**The Hypothesis:** An AI agent operating inside the A.I.M. Exoskeleton (with access to the [[Layered-Engram-Architecture|Engram DB]] and forced into an autonomous TDD loop) will significantly outperform both the Vanilla base model and the industry leader (Cursor) by autonomously debugging its own terminal errors without human intervention.
 
 **The Test Subjects:** Vanilla Gemini 3.1 Pro vs. Gemini 3.1 Pro wrapped in A.I.M. (Targeting Next.js 16.2.1)
 
@@ -13,8 +13,8 @@
 ## Raw Evidence (Verifiable Session Logs)
 The raw JSON session logs (tracking every keystroke, bash command, and compiler error) are committed to this repository for independent verification:
 
-📄 **[A.I.M. + Gemini Session Log](benchmarks/render_benchmark/aim_session.json)**  
-📄 **[Vanilla Gemini Session Log](benchmarks/render_benchmark/vanilla_session.json)**
+📄 **[A.I.M. + Gemini Session Log](https://github.com/BrianV1981/aim-wiki/blob/master/benchmarks/render_benchmark/aim_session.json)**  
+📄 **[Vanilla Gemini Session Log](https://github.com/BrianV1981/aim-wiki/blob/master/benchmarks/render_benchmark/vanilla_session.json)**
 
 ---
 

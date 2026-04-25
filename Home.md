@@ -20,11 +20,11 @@
 >
 > **This project is radically transparent.** It is an Alpha Proof-of-Concept built entirely via "[vibe coding](Benchmark-Vibe-Coding)" — using the very exoskeleton it provides. The commit/issue history shows the iterations, the bug storms, the live patches against real API outputs. There is no VC-funded black box here ***cough*** Cursor ***cough***. The plumbing is being battle-tested in public, and the architecture proves that a structured AI workflow can turn a non-coder into a systems architect.
 
-📖 **Full Documentation:** [Read the Official GitHub Wiki](https://github.com/BrianV1981/aim-wiki/wiki)
-🚀 **Getting Started:** [Read the Step-by-Step User Guide](https://github.com/BrianV1981/aim-wiki/wiki/User-Guide)
-⚙️ **Configuration:** [Configuration & Variables](Configuration-and-Variables)
-🎓 **Day 1 Tutorial:** [Build Your First Feature (Quickstart)](https://github.com/BrianV1981/aim-wiki/wiki/Quickstart-Tutorial)
-🛠️ **Engineers:** Hate biological metaphors? [Read the metaphor-free Technical Spec here](https://github.com/BrianV1981/aim-wiki/wiki/Technical-Specification).
+📖 **Full Documentation:** [Read the Official GitHub Wiki](https://github.com/BrianV1981/aim/wiki)
+🚀 **Getting Started:** [Read the Step-by-Step User Guide](https://github.com/BrianV1981/aim/wiki/User-Guide)
+⚙️ **Configuration:** [[Configuration-and-Variables]]
+🎓 **Day 1 Tutorial:** [Build Your First Feature (Quickstart)](https://github.com/BrianV1981/aim/wiki/Quickstart-Tutorial)
+🛠️ **Engineers:** Hate biological metaphors? [[Technical-Specification|Read the metaphor-free Technical Spec here]].
 
 ---
 
@@ -54,7 +54,7 @@ This is A.I.M.'s primary architectural breakthrough, and it's what most memory f
 
 **The AI industry assumes memory management requires an LLM.** A.I.M. doesn't. The Tier 1 Harvester uses pure, deterministic Python — no LLM, no API calls, zero tokens — to strip raw terminal JSON noise down to a clean "Signal Skeleton," reducing token weight by up to 85% before an LLM ever touches the data.
 
-*   **Empirical Proof (The Noise Filter):** When processing the raw, successful [`matrix_pro_run1_final.json`](benchmarks/raw_logs/matrix_pro_run1_final.json) benchmark log, the native `scripts/extract_signal.py` script reduced the file from **269,537 characters (264 KB)** of chaotic JSON down to a pristine **56,325 characters (56 KB)** of human-readable [Markdown](benchmarks/raw_logs/MATRIX_GEMINI_RUN1.md). That is a **79.1% reduction** in context weight, executed in milliseconds, for exactly $0.00.
+*   **Empirical Proof (The Noise Filter):** When processing the raw, successful [`matrix_pro.json`](https://github.com/BrianV1981/aim-wiki/blob/master/benchmarks/raw_logs/matrix_pro.json) benchmark log, the native [`scripts/extract_signal.py`](https://github.com/BrianV1981/aim/blob/main/scripts/extract_signal.py) script reduced the file from **269,537 characters (264 KB)** of chaotic JSON down to a pristine **56,325 characters (56 KB)** of human-readable Markdown. That is a **79.1% reduction** in context weight, executed in milliseconds, for exactly $0.00.
 
 Background scripts (`failsafe_context_snapshot.py`) silently index data, capture checkpoints, and scrub secrets. The AI doesn't think about any of this, just like you don't think about breathing.
 
@@ -64,7 +64,7 @@ Background scripts (`failsafe_context_snapshot.py`) silently index data, capture
 
 ### 2. The Persistent LLM Wiki (The Dual-Search Brain)
 
-The legacy 4-tier cascading memory and the monolithic `MEMORY.md` file have been completely demolished. Memory is now handled via the **[Persistent LLM Wiki Architecture](The-Persistent-LLM-Wiki-Architecture)** and a Dual-Search engine.
+The legacy 4-tier cascading memory and the monolithic `MEMORY.md` file have been completely demolished. Memory is now handled via the **[[The-Persistent-LLM-Wiki-Architecture|Persistent LLM Wiki Architecture]]** and a Dual-Search engine.
 
 When a coding session concludes, the Reincarnation pipeline wakes up and does two things instantly:
 1. **Raw Vector Ingestion:** It mechanically embeds a noise-reduced flight recorder of the session directly into the SQLite `project_core.db` for zero-latency semantic retrieval via Hybrid RAG.
@@ -141,7 +141,7 @@ AI agents are forbidden from raw `git commit` or `git push`. Every change is tie
 When the Gemini CLI prunes history, A.I.M. intercepts the event and maintains a rolling "Failsafe Snapshot" of raw JSON logs. The Signal Skeleton reduces token weight by up to 85%, ensuring the agent retains critical architectural context even after compression. The "Bouncer" script detects `[EPHEMERAL]` tags on temporary subagents and bans their noise from the long-term database.
 
 ### 🛑 Predictable Restraint (Anti-Rogue Execution)
-A massive danger with modern, highly capable LLMs is their tendency to "auto-execute." If you spin up a standard AI agent in a repository that contains a `TODO.md` or `TASK.md` file, it will often begin autonomously editing your code the second it boots up, without waiting for your permission. A.I.M.'s rigid GitOps and behavioral hierarchy physically suppresses this instinct. The agent treats the operator as the explicit trigger, ensuring it never touches your codebase until you give the exact execution order. *(See empirical proof of this in the [Matrix vs. Base Weights Benchmark](benchmarks/BENCHMARK_DJANGO_MATRIX.md)).*
+A massive danger with modern, highly capable LLMs is their tendency to "auto-execute." If you spin up a standard AI agent in a repository that contains a `TODO.md` or `TASK.md` file, it will often begin autonomously editing your code the second it boots up, without waiting for your permission. A.I.M.'s rigid GitOps and behavioral hierarchy physically suppresses this instinct. The agent treats the operator as the explicit trigger, ensuring it never touches your codebase until you give the exact execution order. *(See empirical proof of this in the [[BENCHMARK_DJANGO_MATRIX|Matrix vs. Base Weights Benchmark]]).*
 
 ### 🌐 Universal IDE Support (MCP)
 
@@ -160,7 +160,7 @@ The built-in MCP Server exposes the [Engram DB](Layered-Engram-Architecture) to 
 - `aim merge-batch` — Sequentially pulls and merges multiple remote GitOps branches.
 - `aim search` — Sub-millisecond Hybrid semantic/lexical search across project history.
 - `aim bake` — Compiles a directory of markdown files into an `.engram` cartridge.
-- `aim export` — Seeds a local `.engram` cartridge to the P2P [Sovereign Swarm](The-Sovereign-Swarm).
+- `aim export` — Seeds a local `.engram` cartridge to the P2P [[The-Sovereign-Swarm|Sovereign Swarm]].
 - `aim jack-in` — Downloads and securely ingests an `.engram` magnet link.
 - `aim ingest` — Pulls human edits from your Obsidian Vault back into the AI's Brain.
 - `aim status` — Show current project momentum and open issues.
@@ -213,16 +213,16 @@ aim init
 aim tui  # Set your LLM providers, routing, and guardrails
 ```
 
-For the complete deployment manual including Obsidian Vault setup, see the [Installation Guide](https://github.com/BrianV1981/aim-wiki/wiki/Installation-Guide).
+For the complete deployment manual including Obsidian Vault setup, see the [Installation Guide](https://github.com/BrianV1981/aim/wiki/Installation-Guide).
 
 ---
 
 ## 📖 Core Documentation
 
-- [The Master Schema](https://github.com/BrianV1981/aim-wiki/wiki/The-Master-Schema) — Full architectural map
-- [Technical Specification](https://github.com/BrianV1981/aim-wiki/wiki/Technical-Specification) — Metaphor-free engineering specs
-- [Benchmarks](https://github.com/BrianV1981/aim-wiki/wiki/Benchmark-Render) — Repeatable, raw-data-backed comparisons
+- [[The-Master-Schema]] — Full architectural map
+- [[Technical-Specification]] — Metaphor-free engineering specs
+- [[Benchmark-Render|Benchmarks]] — Repeatable, raw-data-backed comparisons
 
 ---
 
-> *"Alcmaeon of Croton, Praxagoras of Kos, and Herophilus of Chalcedon were three Ancient Greek philosophers interested in the relation between the head and the body. Alcmaeon argued that the brain is the seat of intelligence, connected to the extremities of the body by poroi. Praxagoras suggested that the brain controls movement in the body, and posed the existence of neurons responsible for sending brain signals through the body. Herophilus used dissection to demonstrate the existence of a nervous system distinct from the vascular system, discovered nerves connected to inner organs and muscles, and distinguished between sensory and motor nerves."*, and distinguished between sensory and motor nerves."*
+> *"Alcmaeon of Croton, Praxagoras of Kos, and Herophilus of Chalcedon were three Ancient Greek philosophers interested in the relation between the head and the body. Alcmaeon argued that the brain is the seat of intelligence, connected to the extremities of the body by poroi. Praxagoras suggested that the brain controls movement in the body, and posed the existence of neurons responsible for sending brain signals through the body. Herophilus used dissection to demonstrate the existence of a nervous system distinct from the vascular system, discovered nerves connected to inner organs and muscles, and distinguished between sensory and motor nerves."*, and distinguished between sensory and motor nerves."*n sensory and motor nerves."*, and distinguished between sensory and motor nerves."**, and distinguished between sensory and motor nerves."*otor nerves."*ory and motor nerves."*n sensory and motor nerves."*, and distinguished between sensory and motor nerves."**, and distinguished between sensory and motor nerves."*otor nerves."**ished between sensory and motor nerves."*otor nerves."*istinguished between sensory and motor nerves."*otor nerves."**ished between sensory and motor nerves."*otor nerves."*
