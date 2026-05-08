@@ -23,7 +23,7 @@ This fits perfectly with the [Layered Engram Architecture](/BrianV1981/aim/wiki/
 A **DataJack** (`.engram`) is a self-contained, pre-embedded knowledge cartridge:
 
 - You run `aim bake <source-directory> <output.engram>`  
-  → A.I.M. parses the docs, generates **Nomic Embeddings** once locally, stores raw text + vectors in `chunks/*.jsonl`, adds `metadata.json`, compresses everything into a compact `.engram` ZIP file, and computes a permanent SHA-256 hash.
+  → A.I.M. parses the docs, generates **Nomic Embeddings** once locally, stores raw text + 768-dim vectors natively in Apache Arrow/Parquet (`.parquet`) format, adds `metadata.json`, compresses everything into a compact `.engram` ZIP file, and computes a permanent SHA-256 hash.
 
 - You then run `aim export <your-cartridge.engram>` to seed it to the Sovereign Swarm.
 
@@ -34,7 +34,7 @@ A **DataJack** (`.engram`) is a self-contained, pre-embedded knowledge cartridge
 **Behind the scenes on jack-in:**
 1. Downloads into airgapped quarantine.
 2. Quarantine Daemon validates the SHA-256 signature and scans for prompt injections.
-3. Unzips and injects the pre-computed embeddings directly into the receiver’s `engram.db` (Base layer only).
+3. Unzips and mounts the Parquet file directly for LanceDB zero-copy reads (treating the cartridge as Read-Only Memory (ROM), completely decoupled from the local RAM database).
 
 **Zero re-embedding. Zero API calls. Zero extra cost.**  
 One person embeds and compresses the knowledge once — the entire swarm benefits forever.

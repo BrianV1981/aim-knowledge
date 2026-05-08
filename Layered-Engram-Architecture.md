@@ -3,7 +3,7 @@
 ## The Architectural Conflict
 A.I.M. is driving toward two advanced knowledge-distribution features that are seemingly at odds:
 
-1. **The Decentralized Torrent Registry (Phase 38):** `.engram` cartridges should be immutable, mathematically hashed SQLite binaries shared via a peer-to-peer torrent network. This requires the file to be static.
+1. **The Decentralized Torrent Registry (Phase 38):** `.engram` cartridges should be immutable, mathematically hashed Parquet files shared via a peer-to-peer torrent network. This requires the file to be static.
 2. **Self-Upgrading Engrams (Live Polling):** Background daemons should scrape GitHub and forums nightly to inject new bug fixes into the local knowledge base. This requires the file to be highly mutable.
 
 If local background daemons mutate the torrented `.engram` files, they break the cryptographic hash, destroying the torrent swarm and fragmenting the community's knowledge base.
@@ -14,7 +14,7 @@ To resolve this, A.I.M. must adopt a **Layered RAG Architecture**—operating mu
 ### 1. The Immutable Base (The Master Cartridge)
 *   Generated via `aim bake`.
 *   Contains the vast bulk of foundational documentation (e.g., `django-v5-core.engram`).
-*   **Read-Only:** Once generated, this local SQLite table/file cannot be modified by the daemon.
+*   **Read-Only (ROM):** Once generated, this LanceDB Parquet file acts as Read-Only Memory and cannot be modified by the daemon. LanceDB queries it via zero-copy reads.
 *   **Decentralized:** Because it is static, its hash is permanent, making it perfect for seeding to the decentralized torrent registry.
 
 ### 2. The Live Patch Ledger (The Mutable Delta)
@@ -24,8 +24,8 @@ To resolve this, A.I.M. must adopt a **Layered RAG Architecture**—operating mu
 
 ### 3. The Query Resolver (Execution Time)
 When the active AI agent executes `aim search "timeout bug"`, the `retriever.py` script queries **both** layers simultaneously:
-1. It searches the `live_deltas` table.
-2. It searches the read-only Base Cartridges.
+1. It searches the `live_deltas` table (The local RAM).
+2. It searches the read-only Base Cartridges (The native Parquet ROM).
 If a conflict or duplicate topic exists, the **Live Delta takes precedence**, effectively "patching" the outdated knowledge in the Base Cartridge at runtime.
 
 ## The Community Minting Process

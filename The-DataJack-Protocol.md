@@ -21,7 +21,7 @@ Once "jacked in," the AI instantly possesses flawless semantic recall of that su
 ## 2. The Mechanics of an `.engram` Cartridge
 An `.engram` file is simply a compressed (zipped) directory containing:
 1. **`metadata.json`:** Defines the contents (e.g., "Python 3.14 Standard Library", "Solana Smart Contract Security").
-2. **`chunks/*.jsonl`:** The Sovereign Sync files containing the raw text *and* the pre-calculated high-dimensional float arrays (Nomic Embeddings).
+2. **`knowledge.parquet`:** A native Apache Arrow Parquet file containing the raw text *and* the pre-calculated 768-dim float arrays (Nomic Embeddings), optimized for native LanceDB ingestion.
 
 ## 3. The Workflow
 
@@ -30,7 +30,7 @@ If you have a directory of raw documentation (e.g., `synapse/react-docs`), you c
 ```bash
 aim bake synapse/react-docs react19.engram
 ```
-*Behind the scenes:* A.I.M. parses the markdown, generates high-dimensional vectors (Nomic math) locally, exports them to JSONL chunks, calculates a strict SHA-256 payload checksum, and zips them into the `.engram` cartridge.
+*Behind the scenes:* A.I.M. parses the markdown, generates high-dimensional vectors (Nomic math) locally, exports them natively to Parquet files, calculates a strict SHA-256 payload checksum, and zips them into the `.engram` cartridge.
 
 You can then seed this cartridge directly to [the Sovereign Swarm](The-Sovereign-Swarm) P2P network:
 ```bash
@@ -46,7 +46,7 @@ aim jack-in "magnet:?xt=urn:btih:..."
 *Behind the scenes:* 
 1. A.I.M. downloads the payload into the airgapped `archive/quarantine/` folder.
 2. The **[Quarantine Daemon](Feature-Quarantine-Daemon)** unzips the cartridge, validates the SHA-256 signature, and heuristically scans for prompt injections.
-3. If clean, it executes raw SQLite `INSERT` statements directly into the receiver's `engram.db`.
+3. If clean, LanceDB mounts the Parquet file directly using **zero-copy reads** (The ROM vs RAM Architecture). The local session database acts as RAM, while the Cartridge acts as Read-Only Memory (ROM).
 4. The transfer takes seconds. Zero embedding API calls are made. 
 
 ## 4. The Value Proposition
