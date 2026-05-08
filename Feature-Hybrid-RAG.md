@@ -1,3 +1,5 @@
+> **⚠️ DEPRECATION NOTICE:** This page details the legacy SQLite-based RAG 4.0/4.2 architecture. A.I.M. has since been upgraded to **RAG 5.2 (The ROM vs RAM Architecture)**, which natively utilizes LanceDB and Apache Arrow Parquet cartridges. This page is preserved for historical context regarding the evolution of the memory system.
+
 # Key Feature: Hybrid RAG (Semantic + Lexical)
 
 **The Problem:** Pure Semantic Vector Search (Cosine Similarity) is brilliant at finding "vibes" and abstract concepts. However, it is notoriously terrible at finding exact variable names, specific error codes, or unique hex strings. If your AI agent needs to find the exact file where `init_workspace_guardrail` is defined, a pure vector search might fail to retrieve it.
