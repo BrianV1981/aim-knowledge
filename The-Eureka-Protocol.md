@@ -58,7 +58,7 @@ This creates a mathematically perfect **Problem → Solution** pair with zero no
 
 The Eureka Protocol doesn’t just erase history — it **archives** the value.
 
-When the Python script performs the rewind, it takes the isolated `Problem → Perfect Solution` pair and forges it into a high-quality `.engram` cartridge (a Synapse). That cartridge can then be optionally seeded to the [Sovereign Swarm](/BrianV1981/aim/wiki/Sovereign-Swarm-P2P), turning real developer struggles into shareable, zero-noise knowledge for the entire Collective Cortex.
+When the Python script performs the rewind, it takes the isolated `Problem → Perfect Solution` pair and forges it into a high-quality `.parquet` cartridge (a Synapse). That cartridge can then be optionally seeded to the [Sovereign Swarm](/BrianV1981/aim/wiki/Sovereign-Swarm-P2P), turning real developer struggles into shareable, zero-noise knowledge for the entire Collective Cortex.
 
 This is how we crowdsource the intelligence of the future — one distilled Eureka moment at a time.
 

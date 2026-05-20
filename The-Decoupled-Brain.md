@@ -37,7 +37,7 @@ While a private GitHub repository *could* theoretically serve as a transport bri
 ### The Cross-Machine Workflow:
 
 1. **The Hands (Machine A):** 
-   The developer finishes a coding session. The A.I.M. `/reincarnate` hook embeds the raw session vector into `archive/project_core.db` locally, but drops the "Signal Skeleton" (takeaways) into the `wiki/_ingest/` folder.
+   The developer finishes a coding session. The A.I.M. `/reincarnate` hook embeds the raw session vector into `memory_lance` locally, but drops the "Signal Skeleton" (takeaways) into the `wiki/_ingest/` folder.
 
 2. **The Transport:** 
    Because the entire `wiki/` directory is mapped as an Obsidian Vault, Syncthing automatically detects the new `_ingest/` files and beams them peer-to-peer over an encrypted tunnel to the secondary machine.

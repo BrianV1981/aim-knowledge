@@ -18,18 +18,18 @@ This document maps the complete anatomical structure of the A.I.M. "Brain."
 *   **Mechanism:** Drops "Signal Skeletons" into `wiki/_ingest/` and uses a background LLM to weave the new knowledge into the existing Markdown wiki files.
 *   **Purpose:** Human-readable, auto-maintaining architectural memory.
 
-## 4. The Federated Archipelago (The Subconscious)
+## 4. The Native Parquet Engine (The Subconscious)
 *   **Trigger:** Automatic vector ingestion during reincarnation and `aim ingest`.
-*   **Storage:** Local SQLite databases in `archive/` (`project_core.db`, `global_skills.db`, `datajack_library.db`, `subagent_ephemeral.db`).
-*   **Function:** [Hybrid RAG](Feature-Hybrid-RAG) (Semantic Vectors + Lexical FTS5).
+*   **Storage:** LanceDB RAM and Parquet ROM cartridges (`memory_lance`, `archive/cartridges/*.parquet`).
+*   **Function:** [Hybrid RAG](Feature-Hybrid-RAG) (Semantic Vectors + Tantivy FTS).
 *   **Purpose:** Token-efficient semantic retrieval for the Conscious Agent via `aim search`.
 
 ## 5. Eternal Recall (History Search)
-*   **Trigger:** Event-driven handoff pulse generator (`src/handoff_pulse_generator.py`).
-*   **Storage:** `archive/history/` (Markdown) and embedded into `archive/project_core.db`.
+*   **Trigger:** Event-driven handoff pulse generator (`aim_core/handoff_pulse_generator.py`).
+*   **Storage:** `archive/history/` (Markdown) and embedded into `memory_lance`.
 *   **Function:** Dedicated keyword search across the entire project history.
 
 ## 6. Sovereign Synchronization (The Export Layer)
-*   **Trigger:** `src/sovereign_sync.py` running during `aim push`.
-*   **Function:** Translates the SQLite databases into deterministic `.jsonl` files in `archive/sync/`.
+*   **Trigger:** `aim_core/sovereign_sync.py` running during `aim push`.
+*   **Function:** Translates the memory into deterministic `.jsonl` files in `archive/sync/`.
 *   **Purpose:** Git-friendly, mergeable brain backups.

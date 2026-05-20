@@ -14,7 +14,7 @@ A.I.M. mimics innate biological functions using pure, deterministic Python. Back
 The active session context is strictly reserved for the immediate task at hand. It must remain pristine and completely unpolluted by autonomic noise.
 
 **Subconscious Recall (The [Engram DB](Layered-Engram-Architecture)):** 
-When someone mentions a person from a decade ago, you genuinely do not remember them immediately. But if you stop, ponder, and take in related senses (a smell, a sound, a picture), the memory suddenly floods back. A.I.M. replicates this. It does not carry all of its knowledge in its active working memory. Instead, when it hits an unknown, it must explicitly "ponder" by executing an `aim search`. The more targeted the search (the query), the more the relevant structural memory (the `.engram`) floods back into the active context window. 
+When someone mentions a person from a decade ago, you genuinely do not remember them immediately. But if you stop, ponder, and take in related senses (a smell, a sound, a picture), the memory suddenly floods back. A.I.M. replicates this. It does not carry all of its knowledge in its active working memory. Instead, when it hits an unknown, it must explicitly "ponder" by executing an `aim search`. The more targeted the search (the query), the more the relevant structural memory (the `.parquet`) floods back into the active context window. 
 
 Below are the specific logical pillars that execute this biological philosophy.
 
@@ -36,12 +36,12 @@ Below are the specific logical pillars that execute this biological philosophy.
 **The Result:** The physical act of generating the tokens forcefully resets the model's attention weights, pulling it out of the rabbit hole and back into alignment.
 
 ## 4. Layered RAG over Static Databases (The Self-Farming Ecosystem)
-**The Problem:** RAG databases (`.engram` cartridges) are inherently static. If they are distributed via Torrents to ensure verified, hashed knowledge, they cannot be updated when a community discovers a new bug fix.
-**The Logic:** A.I.M. mimics the Linux operating system (LTS Core + Daily Patches). The massive `.engram` torrents act as the immutable Base Layer. Meanwhile, local background daemons scrape GitHub daily, injecting new solutions into a highly mutable, local-only `live_deltas` table. When the AI searches, the local Delta takes precedence over the immutable Base.
+**The Problem:** RAG databases (`.parquet` cartridges) are inherently static. If they are distributed via Torrents to ensure verified, hashed knowledge, they cannot be updated when a community discovers a new bug fix.
+**The Logic:** A.I.M. mimics the Linux operating system (LTS Core + Daily Patches). The massive `.parquet` torrents act as the immutable Base Layer. Meanwhile, local background daemons scrape GitHub daily, injecting new solutions into a highly mutable, local-only `live_deltas` table. When the AI searches, the local Delta takes precedence over the immutable Base.
 **The Result:** The agent's knowledge base automatically self-upgrades without breaking the cryptographic hashes of the decentralized community network.
 
 ## 5. Diffs over Blobs (The GitOps Bridge)
-**The Problem:** SQLite databases (`engram.db`) are binary blobs. Storing them in Git causes massive repository bloat, makes PR reviews impossible, and guarantees merge conflicts if two agents learn different things on different branches.
+**The Problem:** LanceDB databases (`memory_lance`) are binary blobs. Storing them in Git causes massive repository bloat, makes PR reviews impossible, and guarantees merge conflicts if two agents learn different things on different branches.
 **The Logic:** The brain must be translated into plaintext before it touches version control. During an `aim push`, the `sovereign_sync.py` script dumps every row of the database into flat `.jsonl` files. 
 **The Result:** The AI's memories become standard Git diffs. You can literally perform a GitHub Code Review on the agent's changing worldview before merging it into `main`.
 
@@ -54,6 +54,6 @@ The current trajectory of the AI industry is driving toward Centralized Intellig
 
 A.I.M. is a rejection of that future. 
 
-By pushing the "Brain" into a local SQLite database, decoupling the background memory processing from expensive APIs (routing it to local Ollama models), and distributing knowledge via decentralized peer-to-peer `.engram` torrents, A.I.M. ensures that no corporate entity can ever revoke, censor, or monetize your agent's intelligence. 
+By pushing the "Brain" into a native LanceDB memory pool, decoupling the background memory processing from expensive APIs (routing it to local Ollama models), and distributing knowledge via decentralized peer-to-peer `.parquet` torrents, A.I.M. ensures that no corporate entity can ever revoke, censor, or monetize your agent's intelligence. 
 
 You own the math. You own the memory. You own the code.

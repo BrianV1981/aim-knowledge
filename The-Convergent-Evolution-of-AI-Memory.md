@@ -22,7 +22,7 @@ The researchers proved that when frontier models (like GPT-5) are forced to swal
 
 This is the exact philosophical bedrock upon which A.I.M. was built. 
 
-In A.I.M., the system prompt is aggressively guarded. Rather than feeding a massive codebase into the Gemini CLI, A.I.M. forces the agent to interact with an external **Engram Database** (a local SQLite vector store). If the agent needs to know how the routing protocol works, it cannot rely on its context window; it must physically execute `aim search "routing protocol"` to retrieve the immutable `.engram` cartridge.
+In A.I.M., the system prompt is aggressively guarded. Rather than feeding a massive codebase into the Gemini CLI, A.I.M. forces the agent to interact with an external **Engram Database** (a local LanceDB vector store). If the agent needs to know how the routing protocol works, it cannot rely on its context window; it must physically execute `aim search "routing protocol"` to retrieve the immutable `.parquet` cartridge.
 
 Both the RLM paper and A.I.M. share the same radical premise: **Memory should not be an intrinsic property of the neural weights or the context window; memory must be an external, queryable state machine.**
 
@@ -35,7 +35,7 @@ Respectfully, the entire industry's obsession with the "Needle in a Haystack" (N
 
 If you need to find a specific phrase in a 1,000-page book (like the Bible or a massive codebase), feeding the entire raw text into an LLM's context window every single time is computationally wasteful and prone to hallucination. 
 
-A.I.M. approaches this pragmatically: A simple Python script chunks the massive text based on semantic Markdown headers, compresses it, and injects it into the `engram.db` SQLite system. When the agent needs to find the "needle," it doesn't read the whole haystack; it executes a deterministic [Hybrid RAG](Feature-Hybrid-RAG) (FTS5 + Semantic Vector) database query. The database instantly returns the exact paragraph. It costs zero API tokens, runs in milliseconds, and it will *never* fail to find the needle.
+A.I.M. approaches this pragmatically: A simple Python script chunks the massive text based on semantic Markdown headers, compresses it, and injects it into the `memory_lance` LanceDB RAM. When the agent needs to find the "needle," it doesn't read the whole haystack; it executes a deterministic [Hybrid RAG](Feature-Hybrid-RAG) (FTS5 + Semantic Vector) database query. The database instantly returns the exact paragraph. It costs zero API tokens, runs in milliseconds, and it will *never* fail to find the needle.
 
 *(It begs the question: If we are actively forgetting how to use basic databases in favor of force-feeding millions of tokens into neural networks, is our engineering pragmatism regressing at the exact same rate that our technology is advancing? Joke... mostly.)*
 

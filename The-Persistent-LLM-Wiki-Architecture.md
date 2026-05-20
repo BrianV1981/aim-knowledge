@@ -14,7 +14,7 @@ A.I.M. explicitly separates *reference data* from *synthesized logic*.
 
 **The Engram DB (Hybrid RAG / Semantic & Lexical Search)**
 *   **The Content:** Immutable, massive, high-volume reference data.
-*   **Examples:** DataJack `.engram` cartridges (entire frameworks like React, Django, or Rust), raw API specifications, massive server error logs, and raw third-party codebases.
+*   **Examples:** DataJack `.parquet` cartridges (entire frameworks like React, Django, or Rust), raw API specifications, massive server error logs, and raw third-party codebases.
 *   **The Logic:** You don't want the AI trying to "synthesize" or summarize the Django framework. You just want it to instantly retrieve the exact syntax for `HttpResponseRedirect` in milliseconds when it needs it. RAG is perfect for finding a needle in a static haystack.
 
 **The LLM Wiki (Persistent Markdown)**
@@ -31,20 +31,20 @@ A.I.M. architects the offloading so your primary agent (and your wallet) never f
 ### Step A: The Ingestion Drop Zone (`wiki/_ingest/`)
 We create a dedicated, physical folder at `wiki/_ingest/`. 
 *   **Manual Drops:** You can manually drag and drop a PDF about a new competitor, a text file with a shower thought, or a raw API response into this folder.
-*   **Automated Drops:** When a heavy coding session ends, the `session_summarizer.py` hook automatically drops a copy of the "Signal Skeleton" (the noise-reduced terminal log) into this folder.
-The Conscious Agent simply drops the file and goes to sleep. Zero latency for the operator.
+*   **Automated Drops:** When a heavy coding session ends, the `aim_reincarnate.py` script extracts the "Signal Skeleton" and executes a Direct Python Handoff (via `subprocess.Popen`), spawning the `session_summarizer.py` daemon in the background to drop the skeleton into this folder.
+The Conscious Agent simply hands off the context and goes to sleep. Zero latency for the operator.
 
 ### Step B: The Bridge (Syncthing)
 Because your project folder is synced (via Syncthing or Obsidian Sync), that raw file in `wiki/_ingest/` immediately syncs over to your secondary PC or home GPU server.
 
-### Step C: Event-Driven Offloading (The Webhook Ping)
-We absolutely avoid background cron-jobs or infinite file-watching loops (which drain CPU and battery and invite silent hallucinations). The process is strictly **Event-Driven**.
-*   The headless `aim daemon` running on your secondary PC / GPU server exposes a secure local webhook listener.
-*   When you are ready to process the dropped files, you (or your primary agent) simply execute: `aim wiki process`. 
-*   This command fires a tiny network ping to your secondary PC. The daemon wakes up, sees the ping, looks inside the synced `wiki/_ingest/` folder, and goes to work using a dedicated `wiki_agent` tmux session.
+### Step C: Event-Driven Offloading (Direct Python Handoff)
+We absolutely avoid fragile webhook pings, background cron-jobs, or infinite file-watching loops (which drain CPU and invite silent hallucinations). The process is strictly **Event-Driven** and decoupled from the active CLI session.
+*   When `/reincarnate` is executed, the dying agent triggers the `aim_reincarnate.py` script.
+*   The script spawns the `session_summarizer.py` scribe as a detached background daemon (`--bg` flag).
+*   The daemon wakes up completely independently of the main thread, processes the synced `wiki/_ingest/` folder, and goes to work using a dedicated `wiki_agent` tmux session.
 
 ### Step D: The Subconscious Execution (The Native Tmux Agent)
-Instead of forcing a local LLM to output massive formatted text strings and parsing them with fragile Python regex, the daemon leverages the A.I.M. Swarm philosophy. It automatically spins up a background `tmux` session named `wiki_agent` running `gemini --yolo` and pastes in a directive to update the wiki.
+Instead of forcing a local LLM to output massive formatted text strings and parsing them with fragile Python regex, the Subconscious Scribe leverages the A.I.M. Swarm philosophy. It automatically spins up a background `tmux` session named `wiki_agent` running `gemini --yolo` and pastes in a directive to update the wiki.
 Because the official `gemini-cli` core maintainers have explicitly rejected PRs to add native OpenAI-compatible local model routing (see [PR #1975](https://github.com/google-gemini/gemini-cli/pull/1975) and [PR #5362](https://github.com/google-gemini/gemini-cli/pull/5362)), we intentionally keep the Subconscious Node within the native Gemini ecosystem to avoid parsing fragility.
 Once the `wiki_agent` wakes up, it executes a highly deterministic pipeline using native tools:
 1.  **Read:** It uses `read_file` to read the first file in `wiki/_ingest/`.
@@ -56,16 +56,16 @@ Once the `wiki_agent` wakes up, it executes a highly deterministic pipeline usin
 ### Step E: The Return & The Dual-Search Architecture
 The new system will operate on a "Dual-Search" architecture to maximize speed and semantic understanding:
 - **Obsidian Native Sync:** The entire `wiki/` directory is purely native Markdown. This means you can open the `wiki/` folder directly as an Obsidian Vault. Any changes made by the Subconscious Daemon will instantly appear in your Obsidian knowledge graph.
-- **Fast Lexical Search (`aim wiki search`):** We will keep the `wiki_tools.py` logic which builds an *in-memory* SQLite FTS5 database on the fly. This provides 0ms latency exact-keyword searches of the markdown files without needing to re-index them.
-- **Deep Semantic Search (`aim search`):** To ensure the Conscious Agent can "feel" the architectural decisions via vector embeddings, the synthesized `wiki/*.md` files are ingested into the `archive/project_core.db` vector store alongside the raw session flight recorders.
+- **Fast Lexical Search (`aim wiki search`):** We use the `wiki_tools.py` logic to build an *in-memory* Tantivy index on the fly. This provides 0ms latency exact-keyword searches of the markdown files without needing to re-index them.
+- **Deep Semantic Search (`aim search`):** To ensure the Conscious Agent can "feel" the architectural decisions via vector embeddings, the synthesized `wiki/*.md` files are ingested into the `memory_lance` vector store alongside the raw session flight recorders.
 
-### Step F: The Reincarnation Hook
+### Step F: The Reincarnation Handoff
 When you execute `/reincarnate`:
 1. The dying agent generates a clean Markdown log of the session (The Flight Recorder).
-2. That log is mathematically embedded into the SQLite `project_core.db` for instant Hybrid RAG search retrieval.
-3. The core takeaways are dropped into `wiki/_ingest/`.
-4. A background (Subconscious) LLM wakes up, reads the ingest folder, updates `wiki/index.md` with the new lore, and goes back to sleep.
-5. The updated Wiki pages are re-embedded into `project_core.db` so the main `aim search` command can find them semantically.
+2. That log is mathematically embedded into the native LanceDB memory pool for instant Hybrid RAG search retrieval.
+3. The core takeaways are dropped into `wiki/_ingest/` via the Direct Python Handoff background daemon.
+4. The `wiki_agent` tmux session wakes up, reads the ingest folder, updates `wiki/index.md` with the new lore, and gracefully exits.
+5. The updated Wiki pages are re-embedded directly into `memory_lance` so the main `aim search` command can find them semantically.
 
 ---
 
@@ -73,13 +73,13 @@ When you execute `/reincarnate`:
 
 If an agent has to read a 1,500-word philosophical essay every time it wakes up just to figure out how to log a note, it will burn tokens and hallucinate. To ensure the system is perfectly understood every single time an agent fires up, we split the instructions into two hardcoded, deterministic places:
 
-### The Conscious Agent's Rule (`GEMINI.md`)
+### The Conscious Agent's Rule (`AGENTS.md`)
 Your primary agent does not need to know *how* to maintain a wiki. It only needs to know how to read it, and how to dump data into it. 
-When a user runs `aim init` and opts into the Wiki system, A.I.M. injects one simple, strict rule into their core `GEMINI.md` guardrails:
+When a user runs `aim init` and opts into the Wiki system, A.I.M. injects one simple, strict rule into their core `AGENTS.md` guardrails:
 
 > **9. THE PROJECT WIKI (LONG-TERM MEMORY)**
 > - **To Read:** The project's synthesized lore and architecture live in the `wiki/` folder. Always start by reading `wiki/index.md`.
-> - **To Write:** DO NOT manually edit the wiki pages. If you learn a new "Eureka" moment or have a new document to add, write the raw text file into `wiki/_ingest/` and execute `aim wiki process` to hand it off to the Subconscious Daemon.
+> - **To Write:** DO NOT manually edit the wiki pages. If you learn a new "Eureka" moment or have a new document to add, write the raw text file into `wiki/_ingest/` and it will automatically be handed off to the Subconscious Daemon during reincarnation.
 
 ### The Subconscious Daemon's Rule (`WIKI_SCHEMA.md`)
 The local LLM running on your secondary PC that actually does the formatting needs strict rules. 

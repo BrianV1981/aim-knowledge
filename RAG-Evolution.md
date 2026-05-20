@@ -35,7 +35,7 @@ The aim-opencode fork has been upgraded from RAG 4.2 (SQLite FTS5 + manual vecto
 | Vector store | **SQLite BLOBs → LanceDB columnar format.** Zero-copy reads, million-row scale. |
 | FTS | **SQLite FTS5 → Tantivy.** No regex syntax traps, robust punctuation handling. |
 | Hybrid search | **Separate queries → Native LanceDB hybrid.** Vector + FTS in a single query. |
-| Proper noun filtering | **New: EntityIntersectionReranker.** Detects capitalized words, deletes semantic hits lacking mandatory proper nouns in FTS results. |
+| Proper noun filtering | **New: EntityIntersectionReranker (RAG 5.21).** Detects capitalized words and multiplies the Reciprocal Rank Fusion score of fragments containing those exact proper nouns by **1.5x**, mathematically curing vector 'Entity Blindness'. |
 | Query generation | **New: generate_tantivy_query().** Stopword removal, fuzzy wildcard stemming (`+melanie*`), parenthesis preservation, dangling operator cleanup. |
 | Reranking | **New: FlashRank cross-encoder.** Local `ms-marco-MiniLM-L-6-v2` model re-ranks top 50 results. |
 | Federation | **New: Single-table omniscience.** All 4 SQLite DBs merged into one LanceDB table with `source_db` metadata. |
@@ -66,7 +66,7 @@ generate_tantivy_query()        ← Stopword removal, fuzzy stemming, +prefix fo
 LanceDB Hybrid Search           ← Vector (nomic-embed-text) + Tantivy FTS in one native query
     │                             565 fine-grained speaker-boundary chunks
     ▼
-EntityIntersectionReranker     ← Deletes semantic hits missing mandatory Proper Nouns
+EntityIntersectionReranker     ← Executes RRF & Multiplies scores of Proper Noun matches by 1.5x
     │
     ▼
 FlashRank Cross-Encoder         ← Local ms-marco-MiniLM-L-6-v2 re-ranker
@@ -118,35 +118,34 @@ RAG 5.0's Ghost Operator polled the OpenCode SQLite `part` table for new text re
 
 ---
 
-## Federated Architecture (Unchanged from RAG 5.0)
+## The Native Parquet Architecture (RAG 5.21)
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                  SQLite Federation (Source of Truth)      │
-│  archive/project_core.db    ← Live project memory       │
-│  archive/global_skills.db   ← Cross-project skills      │
-│  archive/datajack_library.db ← .engram cartridge library  │
-│  archive/subagent_ephemeral.db ← Disposable subagents   │
-└──────────────────────┬──────────────────────────────────┘
-                       │ migrate_from_sqlite()
-                       ▼
-┌─────────────────────────────────────────────────────────┐
-│              LanceDB Vector Store (Search Engine)         │
+│              LanceDB Vector Store (The RAM)               │
 │  memory_lance/fragments.lance                            │
-│  Schema: sqlite_id, session_id, type, content,           │
+│  Schema: fragment_id, session_id, type, content,         │
 │          timestamp, metadata, parent_id,                 │
 │          source_db, vector (768-dim)                     │
 │  Index: Tantivy FTS on content                           │
+└──────────────────────┬──────────────────────────────────┘
+                       │ Zero-Copy Mount
+                       ▼
+┌─────────────────────────────────────────────────────────┐
+│              Apache Arrow Parquet (The ROM)               │
+│  archive/cartridges/*.parquet                            │
+│  - Highly compressed, immutable skill packages           │
+│  - Queried instantaneously without data duplication      │
 └─────────────────────────────────────────────────────────┘
 ```
 
 ## Cartridge Compatibility
 
-All existing `.engram` cartridges remain compatible. The `migrate_from_sqlite()` function in `lance_backend.py` reads pre-computed nomic vectors from SQLite BLOBs and writes them into LanceDB. New cartridges can be built directly into LanceDB using the `build_locomo_lance.py` pattern:
+The proprietary `.engram` (SQLite) format has been fully deprecated in favor of native Apache Arrow `.parquet` files. The new RAG 5.21 system natively compiles static knowledge into highly-compressed Parquet files, allowing for zero-copy reads and universal data science compatibility. When importing a Parquet cartridge (`aim jack-in`), LanceDB dynamically mounts the file directly from the `archive/cartridges/` directory without unzipping or copying rows into the live database. New cartridges can be built directly into Parquet using the `build_locomo_lance.py` pattern:
 1. Parse structured source (JSON, Markdown, CSV)
-2. Chunk with domain-appropriate boundaries
+2. Chunk with Length-Constrained Accumulator (speaker-boundary, 500-1500 chars)
 3. Embed via `get_embedding()`
-4. `table.add(records)` — zero SQLite intermediary
+4. `table.add(records)` — native PyArrow integration
 
 ---
 

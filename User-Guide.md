@@ -108,19 +108,19 @@ Paste the "Wake up" prompt you copied. The new agent will read its Gameplan, pul
 
 ## 3. Knowledge Sharing (The Sovereign Swarm & DataJack)
 
-A.I.M. allows you to package massive documentation sets into portable `.engram` cartridges and share them globally via a decentralized BitTorrent swarm.
+A.I.M. allows you to package massive documentation sets into portable `.parquet` cartridges and share them globally via a decentralized BitTorrent swarm.
 
 ### Baking a Cartridge
 1. Drop raw documentation files (`.md`, `.py`, `.txt`) into a folder like `synapse/my-docs`.
 2. Compile them into a vectorized cartridge:
 ```bash
-aim bake synapse/my-docs my_custom_knowledge.engram
+aim bake synapse/my-docs my_custom_knowledge.parquet
 ```
 
 ### Seeding to the Swarm
 If Swarm Peering is enabled in your `aim tui` settings, you can seed your cartridge to the P2P network:
 ```bash
-aim export my_custom_knowledge.engram
+aim export my_custom_knowledge.parquet
 ```
 The CLI will generate a Magnet Link that you can share with other developers.
 
@@ -129,7 +129,7 @@ To absorb an engram from the Swarm, use the `jack-in` command with the magnet li
 ```bash
 aim jack-in "magnet:?xt=urn:btih:..."
 ```
-**The [Quarantine Daemon](Feature-Quarantine-Daemon):** The payload is downloaded to an airgapped `archive/quarantine/` directory. A background watchdog will unzip it, verify the SHA-256 cryptographic signature, and scan the raw JSON for adversarial prompt injections. If the cartridge is clean, it is securely merged into your local SQLite `engram.db`.
+**The [Quarantine Daemon](Feature-Quarantine-Daemon):** The payload is downloaded to an airgapped `archive/quarantine/` directory. A background watchdog will verify the SHA-256 cryptographic signature and scan the Parquet metadata for adversarial prompt injections. If the cartridge is clean, it is securely mounted as a zero-copy ROM in your `archive/cartridges/` directory.
 
 ---
 

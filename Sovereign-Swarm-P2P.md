@@ -15,26 +15,26 @@ Instead of a “Main Server,” the Sovereign Swarm uses a **BitTorrent-style Di
 
 This fits perfectly with the [Layered Engram Architecture](/BrianV1981/aim/wiki/Layered-Engram-Architecture):
 
-- The **Immutable Base Cartridge** (your baked `.engram` file) is the only thing that gets shared on the swarm.  
+- The **Immutable Base Cartridge** (your baked `.parquet` file) is the only thing that gets shared on the swarm.  
 - Your local **Live Delta / Patch Ledger** stays private and mutable (for fresh bug fixes from `aim watch`).
 
 ### How DataJacks Work in the Swarm Right Now
 
-A **DataJack** (`.engram`) is a self-contained, pre-embedded knowledge cartridge:
+A **DataJack** (`.parquet`) is a self-contained, pre-embedded knowledge cartridge:
 
-- You run `aim bake <source-directory> <output.engram>`  
-  → A.I.M. parses the docs, generates **Nomic Embeddings** once locally, stores raw text + 768-dim vectors natively in Apache Arrow/Parquet (`.parquet`) format, adds `metadata.json`, compresses everything into a compact `.engram` ZIP file, and computes a permanent SHA-256 hash.
+- You run `aim bake <source-directory> <output.parquet>`  
+  → A.I.M. parses the docs, generates **Nomic Embeddings** once locally, stores raw text + 768-dim vectors, alongside embedded metadata natively in Apache Arrow/Parquet (`.parquet`) format, resulting in a highly-compressed, zero-copy ROM cartridge, and computes a permanent SHA-256 hash.
 
-- You then run `aim export <your-cartridge.engram>` to seed it to the Sovereign Swarm.
+- You then run `aim export <your-cartridge.parquet>` to seed it to the Sovereign Swarm.
 
 - Anyone else can load it instantly with:  
   `aim jack-in magnet:?xt=urn:btih:...`  
-  or `aim jack-in python314.engram`
+  or `aim jack-in python314.parquet`
 
 **Behind the scenes on jack-in:**
 1. Downloads into airgapped quarantine.
 2. Quarantine Daemon validates the SHA-256 signature and scans for prompt injections.
-3. Unzips and mounts the Parquet file directly for LanceDB zero-copy reads (treating the cartridge as Read-Only Memory (ROM), completely decoupled from the local RAM database).
+3. Mounts the Parquet file directly for LanceDB zero-copy reads (treating the cartridge as Read-Only Memory (ROM), completely decoupled from the local RAM database).
 
 **Zero re-embedding. Zero API calls. Zero extra cost.**  
 One person embeds and compresses the knowledge once — the entire swarm benefits forever.

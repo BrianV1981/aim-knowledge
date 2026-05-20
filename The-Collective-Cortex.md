@@ -18,7 +18,7 @@ The Collective Cortex is not another centralized service. It is a **Peer-to-Peer
 A.I.M. already captures your development sessions as clean, searchable memory. The Collective Cortex simply adds an opt-in step to turn that work into something the entire open-source world can use.
 
 ### DataJack Protocol — Shared Knowledge Cartridges
-A **DataJack** (`.engram` file) is a self-contained “plug-in” of pre-existing documentation.  
+A **DataJack** (`.parquet` file) is a self-contained “plug-in” of pre-existing documentation.  
 Think: the entire official Python 3.14 docs + the newest Django docs + any other reference material you want your agent to know cold.
 
 - One person embeds the documents once (using whatever model they like — Gemini, Ollama, etc.).
@@ -49,7 +49,7 @@ We use the **Phantom Keyboard** (`tmux send-keys`) to automate this entire proce
 
 - **Idle Nodes (“Subconscious Nodes”)**: When your second PC (or any spare hardware) is idle, it polls the swarm’s global ledger for “Unsolved Puzzles.”
 - **Headless Execution**: It spins up a detached tmux session, researches the puzzle, and verifies the solution character-by-character, spoofing human input to bypass API blocks.
-- **Automatic Seeding**: Once the solution is verified, the node bakes the `.engram` and starts seeding it to the swarm.
+- **Automatic Seeding**: Once the solution is verified, the node bakes the `.parquet` and starts seeding it to the swarm.
 
 This is the long-term vision for hands-off contribution — your hardware keeps working for the collective even while you sleep.
 
@@ -61,11 +61,11 @@ To protect the Operator, the Sovereign Swarm enforces **Absolute Privacy**:
 - **Telemetry Scrubbing**: Before a Synapse or DataJack is seeded, all personal file paths, IP addresses, and API keys are stripped.
 - **Mathematical Proof**: Receiving nodes don’t have to “trust” the sender. They re-run the code themselves. If it doesn’t compile or solve the problem as claimed, the Synapse is rejected.
 
-## 6. The Goal: The Living Dataset + Outlook for Shared .engram DataJacks
+## 6. The Goal: The Living Dataset + Outlook for Shared .parquet DataJacks
 
 The swarm becomes a living, breathing library of human-and-AI breakthroughs. It is the infrastructure that allows us to crowdsource the training and refinement of open-source LLMs — keeping the best models in the hands of the people actually doing the work.
 
-**Outlook for shared .engram DataJacks**  
+**Outlook for shared .parquet DataJacks**  
 In the near future you’ll be able to:
 - Discover popular cartridges with `aim search-datajack "Python 3.14"`, `aim search-datajack "Django 5.2"`, etc.
 - Subscribe to trusted communities or creators (“Django Collective”, “GameDev Synapses”, etc.)

@@ -19,11 +19,11 @@ This means a subagent's frantic, trial-and-error terminal thrashing gets permane
 
 ### 1.3 Rejected Solutions
 #### ✖ Multiple Databases (The Archipelago Model)
-*Idea:* Give every subagent its own SQLite database (`engram_rust_auditor.db`).
+*Idea:* Give every subagent its own LanceDB database (`memory_lance_rust_auditor`).
 *Why we rejected it:* Too much infrastructure overhead. It breaks the simplicity of Sovereign Sync (translating one DB to JSONL) and makes it difficult for the Prime Agent to query across domains if needed.
 
 #### ✖ Database Namespacing (The Megacity Model)
-*Idea:* Add an `agent_id` column to the `engram.db` and run complex SQL `DELETE` commands when the subagent dies.
+*Idea:* Add an `agent_id` column to the `memory_lance` and run complex SQL `DELETE` commands when the subagent dies.
 *Why we rejected it:* Leaves "ghost" fragments if the cleanup script fails. Requires constant SQL filtering to prevent cross-contamination hallucinations.
 
 ### 1.4 The Chosen Solution: The Panopticon Archive + The Tier 1 Bouncer
@@ -42,7 +42,7 @@ We must balance the need for absolute historical truth against the need for a le
    
 4. **The Result:** 
    - The subagent's raw JSON is saved forever in `archive/raw/` (The Historical Truth).
-   - But the subagent's noise never reaches the Daily Log, the Memory Proposals, or the `engram.db` (The Refined Soul).
+   - But the subagent's noise never reaches the Daily Log, the Memory Proposals, or the `memory_lance` (The Refined Soul).
 
 ---
 
@@ -70,7 +70,7 @@ Instead of shipping *both* sets of instructions/hooks natively, we build one Uni
    Once provisioned, the installer permanently deletes the unused files from the workspace (e.g., if Codex is chosen, it deletes `GEMINI.md` and the Gemini hooks directory). 
 
 ### 2.3 The Architectural Benefit
-- The core logic (`engram.db`, Semantic Search, Distiller, TUI) remains identical and unified in one GitHub repository.
+- The core logic (`memory_lance`, Semantic Search, Distiller, TUI) remains identical and unified in one GitHub repository.
 - The local execution environment slims down instantly, avoiding false promises. The repository doesn't pretend to work for both simultaneously—it formally mutates itself into the chosen architecture upon installation.
 
 ## Next Steps for Refinement

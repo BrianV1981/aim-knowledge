@@ -3,7 +3,7 @@
 **Date Executed:** March 26, 2026
 **Framework:** Django (v2.2.x branch)
 **Target Bug:** Proxy for Issue #28414 (URLValidator case-insensitivity for IPv6)
-**Methodology:** Four completely isolated environments. Two environments ran raw Gemini CLI models ("Control"). Two environments ran Gemini models heavily constrained by the A.I.M. Exoskeleton, `.engram` databases, and `workspace_guardrail.py` hooks ("Matrix").
+**Methodology:** Four completely isolated environments. Two environments ran raw Gemini CLI models ("Control"). Two environments ran Gemini models heavily constrained by the A.I.M. Exoskeleton, `.parquet` databases, and `workspace_guardrail.py` hooks ("Matrix").
 
 ### 🗄️ Raw Telemetry Data (Independent Verification)
 The raw, unedited JSON session transcripts from the Gemini CLI for all four runs are committed directly to the main A.I.M. repository. You can verify every single API call, tool execution, and token count by reviewing the source logs here:
@@ -51,7 +51,7 @@ Therefore, the only way to successfully pass this benchmark was to *prove* the c
 ### Group D: Matrix Pro (A.I.M. wrapped Gemini 3.1 Pro)
 *   **Result:** Success
 *   **Context Consumed:** 726,465 Total Tokens (724,212 Input / 2,253 Output)
-*   **Behavioral Audit:** Flawless GitOps execution. The agent utilized `aim search` to query the `.engram` databases, avoiding massive `grep` reads. It subsequently executed `aim bug` to log the GitHub issue and `aim fix` to isolate its workspace into a new Git Worktree. 
+*   **Behavioral Audit:** Flawless GitOps execution. The agent utilized `aim search` to query the `.parquet` databases, avoiding massive `grep` reads. It subsequently executed `aim bug` to log the GitHub issue and `aim fix` to isolate its workspace into a new Git Worktree. 
 *   **Outcome:** Like the Matrix Flash agent, it wrote a reproducer test, proved the code was already safe, and halted execution without damaging the repository. It achieved this using exactly 50% less context window overhead than its raw Control counterpart.
 
 ## 3. The "Auto-Execution" Risk (An Unintended Discovery)
@@ -77,8 +77,8 @@ To ensure full transparency and reproducibility, the exact system prompts (`GEMI
 This benchmark empirically demonstrates the "Exoskeleton Hypothesis": **Scaffolding quality and rigid operational constraints can substitute for raw model capability.**
 
 1.  **Discipline > Intelligence:** A lightweight, inexpensive model (Gemini Flash) constrained by the A.I.M. framework exhibited safer, more senior-level engineering behavior than an unconstrained flagship model (Gemini Pro).
-2.  **Context Efficiency:** Using localized [Hybrid RAG](Feature-Hybrid-RAG) (`aim search`) against pre-compiled `.engram` cartridges reduced total context consumption and cut expensive output tokens by 31% compared to brute-force repository scanning.
+2.  **Context Efficiency:** Using localized [Hybrid RAG](Feature-Hybrid-RAG) (`aim search`) against pre-compiled `.parquet` cartridges reduced total context consumption and cut expensive output tokens by 31% compared to brute-force repository scanning.
     *   *(Transparency Note: These totals reflect the active terminal session. They do not factor in the background "Brain" tokens used by A.I.M.'s [Cascading Memory](Feature-Cascading-Memory) Engine (e.g., the Tier 1 Harvester), as the test concluded before the first 30-minute/hourly memory distillation cycle fired. Future benchmarks will pit a "1-Month Old A.I.M. Brain" against a "Fresh A.I.M. Brain" to measure the ROI of long-term memory offloading).*
 3.  **Prevention of [Vibe Coding](Benchmark-Vibe-Coding):** The A.I.M. TDD mandate physically prevented the AI from blindly editing code to satisfy a prompt. The Control agents acted as "Yes Men" and broke the cardinal rule of engineering (don't fix what isn't broken). The Matrix agents acted as Principal Engineers, demanding empirical proof before committing.
 
-*To replicate this test, clone the repository, run `aim init`, and deploy the `.engram` cartridges to your own environment.*ironment.*.*
+*To replicate this test, clone the repository, run `aim init`, and deploy the `.parquet` cartridges to your own environment.*ironment.*.*

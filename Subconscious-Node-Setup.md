@@ -33,7 +33,7 @@ Both machines must have access to the exact same directory. Since the Persistent
 3. Set the **Obsidian Vault Path** to the local mirrored folder.
 4. Set the **Cognitive Architecture** to `frontline`.
 
-*Behavior:* When you run `/reincarnate`, this agent will bypass the LLM distillation. It simply embeds the raw transcript into its local `project_core.db` and drops a basic Markdown summary directly into `wiki/_ingest/`.
+*Behavior:* When you run `/reincarnate`, this agent will bypass the LLM distillation. It simply embeds the raw transcript into its local `memory_lance` and drops a basic Markdown summary directly into `wiki/_ingest/`.
 
 ### 3. Configure the Subconscious Node (The Server)
 1. SSH into your secondary machine or spare computer.

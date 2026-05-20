@@ -75,7 +75,7 @@ Every feature in A.I.M. maps directly to a concept from game automation:
 | The [Cascading Memory](Feature-Cascading-Memory) Engine | Inventory and state management |
 | The Cognitive Mantra Protocol | Watchdog timer / forced reset |
 | The GEMINI.md mandate | Bot behavior script / prime directives |
-| The [DataJack](The-DataJack-Protocol) `.engram` cartridges | Skill injection / loadout presets |
+| The [DataJack](The-DataJack-Protocol) `.parquet` cartridges | Skill injection / loadout presets |
 | Absolute Workspace Isolation | Anti-ban sandboxing / sanity checks |
 | The GitOps [atomic](Atomic-Architecture) deployments | Save states before risky actions |
 
@@ -133,7 +133,7 @@ A.I.M. was built in approximately 72 hours of active development by a person wit
 formal software engineering background, zero industry knowledge of embeddings or vector 
 databases, and zero experience shipping open-source Python tools.
 
-The repo contains a multi-tiered SQLite memory system, a [hybrid RAG](Feature-Hybrid-RAG) retrieval engine, 
+The repo contains a LanceDB RAM/ROM architecture, a [hybrid RAG](Feature-Hybrid-RAG) retrieval engine, 
 an MCP server, a semantic release pipeline, a TUI configuration cockpit, and a test 
 suite — all built autonomously, with an AI co-developer, using the very workflow 
 disciplines A.I.M. enforces.
@@ -180,7 +180,7 @@ of this wiki for transparency.
 ---
 
 *"I still occasionally feel like an idiot for building this, wondering if anyone else 
-will actually use it. But every time an autonomous agent loads a `.engram` cartridge, 
+will actually use it. But every time an autonomous agent loads a `.parquet` cartridge, 
 navigates a repository, reproduces a bug, and commits a verified fix without human 
 intervention... the industry is busy building a bigger brain, and A.I.M. built the 
 leash."* — **Brian Vasquez**Brian Vasquez**

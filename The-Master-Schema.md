@@ -20,22 +20,20 @@ This document is the definitive architectural map for the A.I.M. platform. It st
 ---
 
 ## SECTION 2: THE FEDERATED BRAIN (THE ARCHIPELAGO MODEL)
-To eliminate the scaling bottleneck of a single monolithic database, A.I.M. segregates memory across a federated fleet of purpose-built SQLite databases in the `archive/` directory. It uses a **[Hybrid RAG](Feature-Hybrid-RAG)** engine, blending dense Vector Embeddings with FTS5 Lexical matching (BM25).
+To eliminate the scaling bottleneck of monolithic databases, A.I.M. utilizes a Native Parquet ROM vs RAM architecture. It uses a **[Hybrid RAG](Feature-Hybrid-RAG)** engine, blending dense Vector Embeddings with Tantivy FTS Lexical matching.
 
 ### 2.1 The Databases
-- **`project_core.db`:** The live, hyper-local context of your active repository (flight recorders and embedded wiki lore).
-- **`global_skills.db`:** Universal, cross-project scripts and tool definitions.
-- **`datajack_library.db`:** Massive, read-only documentation cartridges (e.g., the entire Django framework).
-- **`subagent_ephemeral.db`:** Isolated scratchpads for disposable subagents.
+- **`memory_lance` (The RAM):** The live, hyper-local context of your active repository (flight recorders and embedded wiki lore).
+- **`archive/cartridges/*.parquet` (The ROM):** Immutable, highly compressed Parquet cartridges providing cross-project skills and read-only documentation (e.g., the entire Django framework).
 
 ### 2.2 The Knowledge Map (`aim map` & `aim search`)
 - **Function:** Agents use `aim map` to see a lightweight index of available knowledge across all databases, and `aim search "query"` to retrieve specific chunks via Hybrid RAG.
 
 ### 2.3 Foundry Ingestion & Cartridge Baking (`aim bake`)
-- **Function:** The `foundry/` folder is a dedicated intake zone for technical references. You can manufacture atomic `.engram` cartridges directly from the documentation using `aim bake`.
+- **Function:** The `foundry/` folder is a dedicated intake zone for technical references. You can manufacture atomic `.parquet` cartridges directly from the documentation using `aim bake`.
 
 ### 2.4 The Cartridge Exchange (`aim exchange` & `aim jack-in`)
-Expertise is portable. A.I.M. can `export` its indexed knowledge into compressed `.engram` packs, or `jack-in` external cartridges, allowing you to share a pre-trained "Python Expert" or "Solana Architect" brain with other machines without re-indexing.
+Expertise is portable. A.I.M. can `export` its indexed knowledge into compressed `.parquet` packs, or `jack-in` external cartridges, allowing you to share a pre-trained "Python Expert" or "Solana Architect" brain with other machines without re-indexing.
 
 ---
 
@@ -44,15 +42,15 @@ The monolithic `MEMORY.md` file and legacy cascading memory tiers have been depr
 
 ### 3.1 The Dual-Search Architecture
 - **Obsidian Native Sync:** The `wiki/` directory is purely native Markdown. You can open it directly as an Obsidian Vault. Changes made by the Subconscious Daemon instantly appear in your Knowledge Graph.
-- **Fast Lexical Search (`aim wiki search`):** Builds an *in-memory* SQLite FTS5 database on the fly for 0ms latency exact-keyword searches of the markdown wiki, protecting the agent's token wallet.
-- **Deep Semantic Search (`aim search`):** The synthesized `wiki/*.md` files are also embedded into the `archive/project_core.db` vector store so the Conscious Agent can retrieve architectural lore semantically.
+- **Fast Lexical Search (`aim wiki search`):** Builds an *in-memory* Tantivy index on the fly for 0ms latency exact-keyword searches of the markdown wiki, protecting the agent's token wallet.
+- **Deep Semantic Search (`aim search`):** The synthesized `wiki/*.md` files are also embedded into the `memory_lance` vector store so the Conscious Agent can retrieve architectural lore semantically.
 
 ### 3.2 The Reincarnation Hook
 Memory is compiled and distilled securely in a continuous loop when `/reincarnate` is triggered:
 1. **Flight Recorder:** The dying agent generates a clean Markdown log of the session.
-2. **Vector Ingestion:** That log is mathematically embedded into the SQLite `project_core.db` for instant Hybrid RAG search retrieval.
+2. **Vector Ingestion:** That log is mathematically embedded into the native LanceDB `memory_lance` RAM pool for instant Hybrid RAG search retrieval.
 3. **The Drop Zone:** The core takeaways (Signal Skeleton) are extracted and dropped into `wiki/_ingest/`.
-4. **Subconscious Synthesis:** The Subconscious Wiki Daemon wakes up, reads the ingest folder, seamlessly updates the `wiki/` markdown files, logs the action to `wiki/log.md`, and re-embeds the updated wiki into `project_core.db`.
+4. **Subconscious Synthesis:** The Subconscious Wiki Daemon wakes up, reads the ingest folder, seamlessly updates the `wiki/` markdown files, logs the action to `wiki/log.md`, and re-embeds the updated wiki into `memory_lance`.
 
 ---
 
@@ -168,7 +166,7 @@ In the A.I.M. ecosystem, **Memory is Inalienable Property**. It is not a feature
 
 ### 12.2 The Sovereign Sandbox
 1. **No Cloud Dependencies for Memory:** A.I.M. will never rely on a hosted vector database or remote RAG service for its core databases or session histories.
-2. **Absolute Transparency:** Every thought, action, and memory distillation is stored in open, human-readable formats (JSON, Markdown, SQLite) within the `archive/`, `wiki/`, and `continuity/` directories.
-3. **Portability over Vendor Lock-in:** The `.engram` cartridge format allows operators to physically move their AI's expertise across machines without ever requiring an internet connection.
+2. **Absolute Transparency:** Every thought, action, and memory distillation is stored in open, human-readable formats (JSON, Markdown, Parquet) within the `archive/`, `wiki/`, and `continuity/` directories.
+3. **Portability over Vendor Lock-in:** The `.parquet` cartridge format allows operators to physically move their AI's expertise across machines without ever requiring an internet connection.
 
 By enforcing Memory as Inalienable Property, A.I.M. guarantees that your agent's mind is as sovereign and secure as the hardware it runs on.

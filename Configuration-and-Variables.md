@@ -38,7 +38,7 @@ A.I.M. manages the context window and lifecycle of the agent using configurable 
 ## 🌐 The Sovereign Swarm (P2P)
 Control how your local node interacts with the global decentralized intelligence network.
 
-*   **`swarm_enabled`:** Toggle BitTorrent DataJack tracking to share or download `.engram` cartridges.
+*   **`swarm_enabled`:** Toggle BitTorrent DataJack tracking to share or download `.parquet` cartridges.
 *   **`seeding_ratio` and `max_download_speed`:** Traffic shaping and bandwidth limits for the swarm.
 
 ---
