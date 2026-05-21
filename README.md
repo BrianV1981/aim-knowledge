@@ -1,40 +1,41 @@
-# A.I.M. Documentation Index (`docs/`)
+# A.I.M. Knowledge Vault
 
-This directory serves as a comprehensive archive of architectural plans, benchmark reports, forensic logs, and conceptual blueprints for the A.I.M. operating system. 
+Welcome to the A.I.M. Knowledge Vault. This repository serves as a public Obsidian Vault and deep-lore archive for the [A.I.M. Exoskeleton](https://github.com/BrianV1981/aim) project. 
 
-Below is a categorized summary of every file currently present in this folder:
+Because the main `aim` repository and its live wiki are kept ruthlessly lean (containing only the operational User Manual), this repository acts as the designated "dumping ground" and structured archive for all the heavy philosophical essays, architectural blueprints, and benchmark forensics that dictate how A.I.M. was built.
 
-## 🏛️ Core Architecture & Strategic Gameplans
-*   **`AIM_SEARCH_V2_SECRET_SAUCE.md`**: The definitive mathematical blueprint for RAG 5.21 (Tantivy, LanceDB, Sandwich Context Expansion).
-*   **`LLM_LANCEDB.md`**: The original "Active Epic" proposal outlining the migration from SQLite to Full LanceDB Native Hybrid Search.
-*   **`LLM_WIKI.md`**: A foundational "idea file" inspired by Andrej Karpathy, outlining the core philosophy of a persistent, compounding LLM-maintained personal knowledge base.
-*   **`MEMORY_WIKI_GAMEPLAN.md`**: The original gameplan tracking the transition away from the deprecated `MEMORY.md` file to the new Persistent LLM Wiki Architecture.
-*   **`RAG_5.2_UPGRADE_PLAN.md`**: A checklist tracking the execution of the ROM vs RAM Decoupling epic.
-*   **`RAG_6_0_HYBRID_ROUTER_DESIGN.md`**: An Architecture Decision Record (ADR) planning the *next* evolution: adding a local LLM to route queries concurrently between vector search and deterministic Python grep scripts.
+## 📂 Directory Structure
 
-## 🐛 Flaws & Architecture Decision Records (ADRs)
-*   **`ADR_TWO_STAGE_RERANKING.md`**: Explains the shift to a Two-Stage Filter & Rank retrieval pipeline (Tantivy Strict Inclusion + FlashRank Cross-Encoder) to eliminate false positives when searching for proper nouns.
-*   **`architecture_flaw_update_mechanism.md`**: Documents a critical flaw where `aim update` polluted target repositories with A.I.M.'s engine history. Proposes splitting the command.
-*   **`CONVERGENCE_AUDIT_2026-04-09.md`**: An exhaustive cross-team audit comparing the `aim` (Gemini) and `aim-claude` repositories, recommending standardizing on a pure-function architecture.
-*   **`memory-wiki-agent-pipeline.md`**: Details the end-to-end execution pipeline of the A.I.M. Memory-Wiki architecture during reincarnation.
+To maintain a "rhyme and reason" across this massive lore base, the markdown files have been categorized into the following directories:
 
-## 📊 Benchmark Forensics & Reports
-*   **`benchmark_diagnostics/BENCHMARK_DIAGNOSTICS_REPORT.md`**: A forensic analysis of a 10.7-hour Gemini CLI hang (429 Rate Limit error) compared against a flawless DeepSeek baseline.
-*   **`benchmark_logs_only.zip`**: A compressed archive of the raw JSON/JSONL logs from the Gemini and DeepSeek benchmarks.
-*   **`aerospace.md`**: A status report on an orbital mechanics benchmark. It details a "cascade of failures" where the agent bypassed GitOps rules and hallucinated constants instead of retrieving them from its cartridge.
-*   **`BENCHMARK_ECOSYSTEM.md`**: A comprehensive map of the entire LoCoMo V2 benchmark pipeline across 6 different repositories.
-*   **`QUOTA_DISCREPANCY_REPORT.md`**: Highlights a severe discrepancy in daily token quotas between Gemini Flash (~178M) and Gemini Pro (~556M).
-*   **`RAG_5.1_UPGRADE_REPORT.md`**: A detailed report validating the 89.4% raw accuracy jump achieved by speaker-boundary chunking on the `aim-opencode` fork.
-*   **`SCRIPT_MAP.md`**: Maps the benchmark runner and evaluator scripts (e.g., `ghost_judge.py`) located specifically within the air-gapped `benchmark_results/` evaluation hub.
+### `Architecture/`
+Contains the definitive schemas and historical blueprints of the OS.
+*   **The Master Schema / Handbook:** The literal data flow models.
+*   **RAG Upgrades:** The evolution from SQLite (RAG 4.0) to LanceDB Parquet (RAG 5.21).
+*   **Feature Explanations:** Deep dives into Hybrid RAG, Cognitive Routing, and GitOps bridges.
 
-## 🗃️ Dataset Rebuilds (LoCoMo)
-*   **`locomo_v2_rebuild_forensics.md`**: A forensic record of the `locomo-v2` dataset rebuild addressing a "Link Rot Crisis" and cross-contamination bugs.
-*   **`MASTER_TAGGED_REVIEW_LOG.md`**: A massive 1,175-line log containing all tagged questions (corrections and replacements) from the finalized LoCoMo V2 dataset.
-*   **`QA_PAIRS.md`**: A raw list of QA pairs evaluating agent memory retention regarding characters from the dataset.
-*   **`V2_EVIDENCE_MAPPING_REVIEW.md`**: A manual review log tracking the semantic synchronization of evidence markers (`D:X:Y`) against updated V2 Ground Truth answers.
+### `Benchmarks/`
+Contains the empirical data and forensic reports proving the A.I.M. architecture.
+*   **Django Matrix:** A 50% context reduction proven against raw Gemini baseline.
+*   **Vibe Coding vs TDD:** Proof that unconstrained agents generate fatal data races.
+*   **Aerospace & Render:** Sandbox evaluations of autonomous debugging.
 
-## 🛠️ Infrastructure & Setup
-*   **`AIM_HEARTBEAT.md`**: Documentation for `aim_heartbeat.py`, a system-level cronjob sentinel that performs routine health checks.
-*   **`AIM_PLAN_PINGER.md`**: A guide for `aim_plan_pinger.py`, an agent-initiated detached watchdog that injects `tmux` nudges to keep long-running agents aligned with their plans.
-*   **`aim.wiki_overhaul.md`**: The strategy document proposing we split the bloated wiki into a clean user manual and a separate `aim-knowledge` repository.
-*   **`aim.wiki_public_obsidian_vault.md`**: Explains the concept of turning the new `aim-knowledge` repository into a public Obsidian Vault for users to browse native Markdown graphs.
+### `Philosophy_and_Concepts/`
+The essays and manifestos defining the "Why" behind A.I.M.
+*   **The 30% Rule:** Why context windows collapse and why reincarnation is mandatory.
+*   **The MMO Botter's Advantage:** Why strict rules beat raw model scaling.
+*   **The Eureka Protocol & Cartridge Farming:** How agents generate "sweat equity" into exportable skills.
+*   **Grok Review:** A third-party AI audit of the entire architecture.
+
+### `Dataset_Forensics/`
+Detailed logs repairing the broken upstream LoCoMo V2 dataset.
+*   **V2 Purification & Rebuilds:** Resolving link rot and Ground Truth hallucinations.
+*   **Master Tagged Review Log:** The 1,175-line log of every corrected QA pair.
+
+### `Infrastructure/`
+ADRs (Architecture Decision Records) and sentinel setup guides.
+*   **Heartbeat & Pinger:** Detached watchdogs ensuring system compliance.
+*   **Wiki Overhaul:** The strategy documents that led to the creation of this very repository.
+
+### `Guides_and_Manuals/`
+Historical copies of user guides, TUI maps, and prompt ledgers. (For the most up-to-date quickstart instructions, please refer to the main [A.I.M. Live Wiki](https://github.com/BrianV1981/aim/wiki)).
