@@ -14,9 +14,9 @@ Grok reported having read the entire wiki, including the Home page, Installation
 
 Key architectural elements highlighted:
 * **Tiered [Cascading Memory](Feature-Cascading-Memory) Engine** — Four tiers (Harvester → Daily Distiller → Weekly Arc → Apex Proposer) with automatic scaffolding log deletion.
-* **[Hybrid RAG](Feature-Hybrid-RAG)** — Combines semantic Nomic embeddings with FTS5 lexical search inside SQLite to prevent the “photograph effect” of pure vector search.
+* **[Hybrid RAG](Feature-Hybrid-RAG)** — Combines semantic Nomic embeddings with Tantivy lexical search inside LanceDB to prevent the “photograph effect” of pure vector search.
 * **[Cognitive Routing](Feature-Cognitive-Routing) via Universal Hub** — The `aim tui` interface enables cost control and offline operation by routing repetitive tasks to lighter models (Gemini Flash, Claude Haiku, or local Ollama) while reserving flagship models for high-level reasoning.
-* **[DataJack Protocol](The-DataJack-Protocol)** — Uses `.engram` cartridges for zero-embedding, parameterized SQLite knowledge sharing.
+* **[DataJack Protocol](The-DataJack-Protocol)** — Uses `.parquet` cartridges for zero-embedding, parameterized SQLite knowledge sharing.
 * **Safety & Sovereignty Layers** — Includes [GitOps Bridge](Feature-GitOps-Bridge), [Universal Skills](Feature-Universal-Skills) Framework, Context Collapse Shield, and Subagent Bouncer.
 
 Grok also validated the credibility of the project’s three benchmarks ([Render](Benchmark-Render).com [Vibe Coding](Benchmark-Vibe-Coding) Test, [Epistemic Certainty](Benchmark-Epistemic-Certainty), and [Vibe Coding](Benchmark-Vibe-Coding) Trap) and noted the ambitious “Project Singularity” roadmap, which already includes a daemon phase and ongoing work on a “Zero-Token Continuity Model.”
@@ -38,12 +38,12 @@ The final segment of the session compared A.I.M. (free, open-source, CLI-first) 
 | Aspect              | Cursor (Paid, IDE-first)                  | A.I.M. (Open-Source, CLI-based)                          |
 |---------------------|-------------------------------------------|----------------------------------------------------------|
 | Form Factor         | VS Code fork + visual tools               | Pure CLI exoskeleton for any agent                       |
-| Memory System       | Memories + Rules, SQLite indexing         | Tiered [Cascading Memory](Feature-Cascading-Memory) + [hybrid RAG](Feature-Hybrid-RAG) + rolling proposals |
+| Memory System       | Memories + Rules, LanceDB indexing         | Tiered [Cascading Memory](Feature-Cascading-Memory) + [hybrid RAG](Feature-Hybrid-RAG) + rolling proposals |
 | Context Protection  | Semantic search, dynamic file pull        | Context Collapse Shield + hooks + [GitOps Bridge](Feature-GitOps-Bridge)          |
 | Autonomy            | Parallel agents, cloud automations        | Subagent Bouncer + MCP Skills + sandboxing               |
 | Model Strategy      | Primarily OpenAI/Anthropic/Gemini         | Model-agnostic; offloads repetitive work to local models |
 | Git Integration     | Commands + PR bot                         | Native GitOps (aim commit, self-healing)                 |
-| Portability         | Memories/Rules in repo                    | [DataJack](The-DataJack-Protocol) .engram cartridges for instant transfer         |
+| Portability         | Memories/Rules in repo                    | [DataJack](The-DataJack-Protocol) .parquet cartridges for instant transfer         |
 | Cost / Sovereignty  | Subscription + model costs, closed-source | Free, fully open, offline-capable                        |
 
 The exchange also briefly noted Claude Code and Codex as future comparison targets, emphasizing A.I.M.’s unique strength in offloading “repetitive brain work” to inexpensive or local models while preserving sovereignty.
