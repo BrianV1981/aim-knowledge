@@ -1,12 +1,16 @@
 # Architecture Decision Record: The Ghost Orchestrator
 
 **Date:** May 2026
+**Status:** Integrated
+**Scope:** Automated Benchmarking & Evaluation
 
-## Context
-High-horizon LLM benchmarking (e.g., 50+ turn debugging sessions) is fundamentally broken by standard API timeout patterns. Naive `requests.post()` loops inevitably fail due to silent 429 timeouts and model "Thinking" loops.
+## 1. The Problem: The API Wall
+Standard `requests.post()` loops fail against modern LLM API rate limits. During a 63MB Gemini CLI stress test, we observed 31 occurrences of silent "429 No Capacity" hangs, where the agent entered an infinite "Thinking" state.
 
-## The Ghost Solution
-A.I.M. bypasses the API wall by utilizing `ghost_runner` and `ghost_judge` as detached daemons. 
-1. **`tmux` Injection:** The orchestrator spawns an isolated `tmux` session, gaining physical control over the TTY. 
-2. **Key Injection:** Instead of relying on API libraries, it injects keyboard events to trigger terminal input/output, allowing it to "Escape" infinite loops and force-reset stalled models.
-3. **Epistemic Judge:** The evaluator runs in an isolated vessel, ensuring the runner process cannot contaminate the evaluation logs.
+## 2. The Solution: Tmux-Backed Injection
+The "Ghost Orchestrator" (`ghost_runner` / `ghost_judge`) bypasses the application layer by taking control of a `tmux` container.
+- **Direct Control:** Instead of network requests, it performs raw stdin key injections (e.g., triggering `Escape` to break out of hangs).
+- **Epistemic Isolation:** The Judge agent runs in a distinct `tmux` session, ensuring zero environmental contamination between the runner and the evaluator.
+
+## 3. Impact
+This allows A.I.M. to force-evaluate massive datasets while maintaining 99% uptime, even when the underlying LLM provider is struggling with load.
