@@ -5,12 +5,13 @@
 **Database:** LanceDB (Native PyArrow) + Tantivy FTS
 
 ## 1. The Result
-We achieved an unprecedented **95.6% Recall** on the LongMemEval-S dataset. This victory validates the transition from the legacy RAG 4.0 SQLite/FTS5 architecture to the native LanceDB Parquet ROM/RAM pipeline.
+A.I.M. OS has achieved a **95.6% Recall score** on the LongMemEval-S benchmark. This victory validates the RAG 5.21 migration, moving away from fragmented SQLite storage to a unified, columnar Apache Arrow-based memory architecture.
 
-## 2. Key Technical Breakthroughs
-* **Speaker-Boundary Chunking:** Abandoned arbitrary token-window slicing. Our new `Length-Constrained Accumulator` (implemented in `forensic_utils.py`) preserves the semantic integrity of conversational turns by respecting speaker boundaries within a 500-1500 character window.
-* **LanceDB Native Ingestion:** By bypassing the SQLite/JSONL bottleneck, we achieve zero-copy ingestion of flight recorder data.
-* **18GB -> 500MB Compaction:** The `table.optimize()` protocol successfully compacted 208,090 fragments, reducing historical bloat by 97% while maintaining perfect recall.
+## 2. Methodology: Length-Constrained Accumulator
+The primary driver of this recall jump was the replacement of standard, lossy context-windowing with the **Length-Constrained Accumulator**. By enforcing speaker-boundary chunking (500-1500 characters), we prevent the semantic dilution that plagues naive sliding-window approaches.
 
-## 3. Comparative Edge: A.I.M. vs. The World
-Unlike frameworks relying on pure JSON-based routing or naive vector search (which suffer from "entity blindness"), A.I.M.'s Hybrid Search leverages Tantivy FTS alongside Vector Embeddings. This ensures that even when dense embedding space fails (e.g., highly specific project-internal technical terms), the FTS index maintains zero-latency retrieval.
+## 3. Comparison: A.I.M. vs. c137
+While the c137 framework relies on "No Embeddings" and structured JSON routing, A.I.M. leverages Hybrid Retrieval. By blending dense Vector Embeddings with native Tantivy Lexical indexing, we resolve "entity blindness" without losing data to cold storage.
+
+## 4. Operational Efficiency
+The transition to a native LanceDB PyArrow memory pool allowed us to compact 19,000+ transactional history fragments down to a clean, highly-compressed ~500MB Parquet artifact, making the entire "System Memory" portable.
