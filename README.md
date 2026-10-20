@@ -23,11 +23,13 @@ Contains the empirical data and forensic reports proving the A.I.M. architecture
 
 ### `Philosophy_and_Concepts/`
 The essays and manifestos defining the "Why" behind A.I.M.
+*   **[The Great Convergence: From Vessel Fragmentation to J.O.S.H.U.A.](Philosophy_and_Concepts/The-Great-Convergence:-From-Vessel-Fragmentation-to-J.O.S.H.U.A..md):** The forensic Git chronicle of how four fragmented CLI vessels unified into `aim-joshua`.
+*   **[J.O.S.H.U.A. vs. The Open-Source Harness Era (October 2026 Audit)](Philosophy_and_Concepts/J.O.S.H.U.A.-vs-The-Open-Source-Harness-Era-(Gemini-4-Argon-High-Audit,-October-2026).md):** Head-to-head architectural & paywall audit against OpenCode, Goose, Gas Town, Beads, OpenHands, Aider, and Claude Code.
 *   **A.I.M. vs The World:** A direct critique of Autonomous Agent and Virtual OS frameworks.
-*   **The 30% Rule:** Why context windows collapse and why reincarnation is mandatory.
+*   **The 30% Rule:** Why context windows collapse and why context handoffs are mandatory.
 *   **The MMO Botter's Advantage:** Why strict rules beat raw model scaling.
 *   **The Eureka Protocol & Cartridge Farming:** How agents generate "sweat equity" into exportable skills.
-*   **Grok Review:** A third-party AI audit of the entire architecture.
+*   **Grok Review:** The March 2026 third-party AI audit of the original architecture.
 
 ### `Dataset_Forensics/`
 Detailed logs repairing the broken upstream LoCoMo V2 dataset.
@@ -41,38 +43,15 @@ ADRs (Architecture Decision Records) and sentinel setup guides.
 *   **Wiki Overhaul:** The strategy documents that led to the creation of this very repository.
 
 ### `Guides_and_Manuals/`
-Historical copies of user guides, TUI maps, and prompt ledgers. (For the most up-to-date quickstart instructions, please refer to the main [A.I.M. Live Wiki](https://github.com/BrianV1981/aim/wiki)).
+Historical copies of user guides, TUI maps, and prompt ledgers. (For the most up-to-date quickstart instructions, please refer to the main [J.O.S.H.U.A. Wiki](https://github.com/BrianV1981/aim-joshua/wiki)).
 
 <!-- AIM_ECOSYSTEM_START -->
 ### 🧬 The A.I.M. Ecosystem
 
-Modular A.I.M. (Actual Intelligent Memory) repositories. **Flagship engine: [aim-agy](https://github.com/BrianV1981/aim-agy).**
+`aim-knowledge` is the public deep-lore archive and philosophical vault for **[J.O.S.H.U.A. (AIM-Joshua)](https://github.com/BrianV1981/aim-joshua)** and the larger A.I.M. (Actual Intelligent Memory) architecture.
 
-**Active vessels (CLI hosts):**
-- **[aim-agy](https://github.com/BrianV1981/aim-agy)** — Core engine (Antigravity / post–Gemini-CLI line). *Flagship.*
-- **[aim-grok](https://github.com/BrianV1981/aim-grok)** — Grok CLI vessel (hybrid memory, GitOps, wiki).
-- **[aim-opencode](https://github.com/BrianV1981/aim-opencode)** — OpenCode CLI vessel.
-- **[aim-codex](https://github.com/BrianV1981/aim-codex)** — OpenAI Codex CLI vessel (greenfield nested soul + Codex overlays; primary `main`).
+To see how the sovereign OS, AI agents, MCP servers, and terminal multiplexers all connect, please visit the central ecosystem repository:
 
-**Tools & workspaces:**
-- **[aim-connect](https://github.com/BrianV1981/aim-connect)** — Self-hosted remote workspace web UI.
-- **[aim-tmux-dashboard](https://github.com/BrianV1981/aim-tmux-dashboard)** — Terminal multi-session monitor.
-- **[aim-browser](https://github.com/BrianV1981/aim-browser)** — Headed Chromium CDP engine + browser **skill suite**.
-- **[aim-google](https://github.com/BrianV1981/aim-google)** — Google Workspace CLI (Gmail, Drive, Calendar, …).
-- **[aim-flight-recorder](https://github.com/BrianV1981/aim-flight-recorder)** — Forensic Markdown session extractor.
-- **[aim-boardroom](https://github.com/BrianV1981/aim-boardroom)** — Multi-agent orchestration room (OS multiplexing + artifacts).
-- **[aim-skills](https://github.com/BrianV1981/aim-skills)** — **Skills index / multi-CLI install registry** (agy, grok, opencode, codex).
-
-**DNA, comms & lore:**
-- **[aim-coagents](https://github.com/BrianV1981/aim-coagents)** — DNA bank for sovereign co-agent blueprints.
-- **[aim-knowledge](https://github.com/BrianV1981/aim-knowledge)** — Public Obsidian vault / deep-lore archive.
-- **[aim-chalkboard](https://github.com/BrianV1981/aim-chalkboard)** — Optional cross-host async git mailbox (PoC; default same-host comms = **aim-communicate** skill).
-
-**Deprecated / not maintained:**
-- **[aim](https://github.com/BrianV1981/aim)** — Original **Gemini CLI** framework. Deprecated after loss of practical subscription access; **Great Migration → aim-agy**.
-- **[aim-swarm](https://github.com/BrianV1981/aim-swarm)** — Legacy Python swarm factory → use **aim-coagents** + aim-agy spawn.
-- **aim-claude / Anthropic-line vessels** — **Done.** Operator does not develop against Anthropic. Use **aim-agy / aim-grok / aim-opencode / aim-codex**.
-
-Full map: see **aim-skills** `docs/AIM_ECOSYSTEM_MAP.md` or Operator artifact `AIM_ECOSYSTEM_MAP.md`.
+👉 **[The A.I.M. Ecosystem Directory](https://github.com/BrianV1981/aim-ecosystem)**
 <!-- AIM_ECOSYSTEM_END -->
 

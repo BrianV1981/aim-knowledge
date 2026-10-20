@@ -11,7 +11,9 @@
 * [[Benchmarks/LongMemEval_95_Percent_Victory|LongMemEval Victory]]
 * [[Infrastructure/The_Ghost_Orchestrator_ADR|The Ghost Orchestrator]]
 * [[Philosophy_and_Concepts/A.I.M._vs_The_World|A.I.M. vs The World]]
+* [[Philosophy_and_Concepts/The-Great-Convergence:-From-Vessel-Fragmentation-to-J.O.S.H.U.A.|The Great Convergence]]
+* [[Philosophy_and_Concepts/J.O.S.H.U.A.-vs-The-Open-Source-Harness-Era-(Gemini-4-Argon-High-Audit,-October-2026)|J.O.S.H.U.A. vs Harness Era]]
 
 ## Official Repositories
-👉 **[A.I.M. Source Code](https://github.com/BrianV1981/aim)**
-👉 **[A.I.M. Live Wiki (User Manual)](https://github.com/BrianV1981/aim/wiki)**
+👉 **[J.O.S.H.U.A. Source Code](https://github.com/BrianV1981/aim-joshua)**
+👉 **[J.O.S.H.U.A. Live Wiki (User Manual)](https://github.com/BrianV1981/aim-joshua/wiki)**
