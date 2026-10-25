@@ -1,6 +1,6 @@
 # Benchmark Scripts Map
 
-This document maps all the scripts contained within the air-gapped `/home/kingb/benchmark_results/` evaluation hub. It outlines whether a script is actively used in the RAG 5.0 pipeline or designed for a specific agent (Gemini CLI vs OpenCode).
+This document maps all the scripts contained within the air-gapped `~/benchmark_results/` evaluation hub. It outlines whether a script is actively used in the RAG 5.0 pipeline or designed for a specific agent (Gemini CLI vs OpenCode).
 
 ---
 

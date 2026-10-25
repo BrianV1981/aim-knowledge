@@ -29,7 +29,7 @@ Enforcing the Conversation Lock revealed a new issue: some conversations simply 
 The 82 perfectly rebuilt, session-locked, photo-reusing questions were generated using a highly context-aware pipeline.
 
 ### The Scripts
-The entire process relies on the following core scripts located in `/home/kingb/locomo-v2/scripts/`:
+The entire process relies on the following core scripts located in `~/locomo-v2/scripts/`:
 
 1.  **`apply_corrections.py`**: Injects the 156 manual logic/text fixes into the raw V1 dataset, outputting `data/locomo_v2_base.json`.
 2.  **`map_replacements.py`**: Enforces the Conversation Lock and Photo-Reuse workaround, mapping the 82 dead links to surviving visual ground truth images. Outputs `data/replacement_manifest.json`.
@@ -43,7 +43,7 @@ The 82 pristine questions were securely merged into the three permanent V2 varia
 ---
 
 ## 4. Final Dataset Locations
-The pristine, finalized datasets are safely tracked and committed to the `main` branch of the `locomo-v2` GitHub repository. They are located in `/home/kingb/locomo-v2/data/`:
+The pristine, finalized datasets are safely tracked and committed to the `main` branch of the `locomo-v2` GitHub repository. They are located in `~/locomo-v2/data/`:
 
 *   **`locomo_v2_llava.json`**: The variant containing the injected LLaVA visual descriptions (crucial for text-only agent evaluation).
 *   **`locomo_v2_local.json`**: The variant configured for local image cache resolution.

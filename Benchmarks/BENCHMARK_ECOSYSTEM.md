@@ -67,7 +67,7 @@
 
 ### 1. `locomo-visual-ground-truth` — Image Rescue & OCR
 
-**Location:** `/home/kingb/locomo-visual-ground-truth`  
+**Location:** `~/locomo-visual-ground-truth`  
 **Role:** Phase 1 — source data preservation  
 **Status:** Active
 
@@ -101,7 +101,7 @@ This repo solves that by:
 
 ### 2. `locomo-v2` — Gold Standard Dataset
 
-**Location:** `/home/kingb/locomo-v2`  
+**Location:** `~/locomo-v2`  
 **Role:** Phase 1 — corrected dataset engine  
 **Status:** Active
 
@@ -131,7 +131,7 @@ Fixes two fatal flaws in the original LoCoMo benchmark:
 
 ### 3. `benchmark_results` — Evaluation Hub
 
-**Location:** `/home/kingb/benchmark_results`  
+**Location:** `~/benchmark_results`  
 **Role:** Phase 2 — execution + evaluation  
 **Status:** Active (air-gapped)
 
@@ -179,7 +179,7 @@ All runners follow the same pattern:
 
 ### 4. `aim-locomo` — Gemini CLI Agent Under Test
 
-**Location:** `/home/kingb/aim-locomo`  
+**Location:** `~/aim-locomo`  
 **Role:** Phase 2 — the agent being benchmarked  
 **Status:** Active (Gemini CLI)
 
@@ -196,13 +196,13 @@ A fully scaffolded A.I.M. OS instance running the Gemini CLI agent. This is the 
 - Federated databases: `project_core.db`, `global_skills.db`, `datajack_library.db`, `subagent_ephemeral.db`
 
 **Relationship to benchmark_results:**
-The Ghost Operator scripts point at `/home/kingb/aim-locomo` as the agent's working directory. Responses are read from `~/.gemini/tmp/aim-locomo/chats/*.jsonl`.
+The Ghost Operator scripts point at `~/aim-locomo` as the agent's working directory. Responses are read from `~/.gemini/tmp/aim-locomo/chats/*.jsonl`.
 
 ---
 
 ### 5. `aim-swarm` — Orchestration Extension
 
-**Location:** `/home/kingb/aim-swarm`  
+**Location:** `~/aim-swarm`  
 **Role:** Utility — co-agent spawning and coordination  
 **Status:** Gemini-locked, needs OpenCode port
 
@@ -228,11 +228,11 @@ A standalone orchestration layer for spawning and managing multiple A.I.M. agent
 
 ### 6. `aim-opencode` / `opencode-locomo` — OpenCode Transition
 
-**aim-opencode:** `/home/kingb/aim-opencode`  
+**aim-opencode:** `~/aim-opencode`  
 **Role:** Fork maintenance — `d3c12yp7012/aim-opencode` on GitHub  
 **Status:** Active — RAG 5 merged, coagent-swarm skill deployed
 
-**opencode-locomo:** `/home/kingb/opencode-locomo`  
+**opencode-locomo:** `~/opencode-locomo`  
 **Role:** Phase 3 — OpenCode test harness  
 **Status:** Scaffolded, ready for benchmark testing
 
@@ -313,16 +313,16 @@ locomo-visual-ground-truth/
 
 ```bash
 # 1. Ensure the dataset is current
-cp /home/kingb/locomo-v2/locomo_v2_final.json \
-   /home/kingb/benchmark_results/data/locomo_v2/
+cp ~/locomo-v2/locomo_v2_final.json \
+   ~/benchmark_results/data/locomo_v2/
 
 # 2. Ensure the agent workspace is ready
-cd /home/kingb/aim-locomo
+cd ~/aim-locomo
 # Verify LanceDB is migrated
 python -c "from aim_core.lance_backend import VectorBackend; VectorBackend().migrate_from_sqlite()"
 
 # 3. Run the Ghost Operator (from benchmark_results)
-cd /home/kingb/benchmark_results
+cd ~/benchmark_results
 python runners/locomo_ghost_operator_v2.py
 
 # 4. Judge the results

@@ -14,7 +14,7 @@ The `setup.sh` bash script automatically executes `sudo apt install dbus-x11 lib
 
 ## 2. The Path Resolution Catastrophe
 **The Flaw:**
-If an agent executes `/home/kingb/aim/aim_core/aim_cli.py init` while standing inside a new, empty directory (`aim-medsdme`), the `find_aim_root()` function dynamically resolves backward until it finds a `setup.sh` or `core/CONFIG.json`. It climbed out of the target directory and found the *source* repository (`aim`). This triggered a catastrophic `--clean` sweep on the global source repository instead of initializing the target workspace.
+If an agent executes `~/aim/aim_core/aim_cli.py init` while standing inside a new, empty directory (`aim-medsdme`), the `find_aim_root()` function dynamically resolves backward until it finds a `setup.sh` or `core/CONFIG.json`. It climbed out of the target directory and found the *source* repository (`aim`). This triggered a catastrophic `--clean` sweep on the global source repository instead of initializing the target workspace.
 **The Fix:**
 *   **Strict Path Enforcement:** `aim_init.py` must aggressively validate its target directory. It should require an explicit target path (e.g., `aim init --target .`) and immediately abort if the target path does not match the active `git` origin or lacks a `.git` folder indicating it is the intended clone.
 *   **Global Binary:** The A.I.M. CLI should be installed globally (e.g., via `pipx` or a symlink in `/usr/local/bin`). Deploying a new workspace should be a command like `aim deploy /path/to/target`, allowing the globally installed binary to handle the cloning, venv creation, and initialization safely.

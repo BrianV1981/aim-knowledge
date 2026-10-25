@@ -46,7 +46,7 @@ Once all 15 chunks have been extracted and saved to the `_ingest/` folder, `sess
 3. It then spawns **exactly one** dedicated, detached `tmux` session named `wiki_agent_[timestamp]`.
 4. Inside this single tmux session, it launches a persistent, interactive Gemini CLI agent in YOLO mode:
    ```bash
-   tmux new-session -d -s wiki_agent_[timestamp] -c /home/kingb/aim/memory-wiki gemini --yolo
+   tmux new-session -d -s wiki_agent_[timestamp] -c ~/aim/memory-wiki gemini --yolo
    ```
 
 **The Prompt Injected into this Single Wiki Agent:**

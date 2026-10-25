@@ -19,7 +19,7 @@ Ensure `scripts/aim_heartbeat.py` is configured with your environment paths.
 To register a heartbeat (e.g., every day at 8:00 AM), add the following to your `crontab -e`:
 
 ```bash
-0 8 * * * /usr/bin/python3 /home/kingb/aim/scripts/aim_heartbeat.py --log /home/kingb/aim/memory-wiki/daemon.log
+0 8 * * * /usr/bin/python3 ~/aim/scripts/aim_heartbeat.py --log ~/aim/memory-wiki/daemon.log
 ```
 
 ## Maintenance & Monitoring
