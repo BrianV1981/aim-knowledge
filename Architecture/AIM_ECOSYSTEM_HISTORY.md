@@ -38,13 +38,20 @@ This document traces the architectural history and cognitive evolution of the A.
   * **DHH Agentic Philosophy & ADHD Execution DNA:** `AGENTS.md` enforces Outcome-Oriented Directives (Operator owns taste/why; agent owns how), pre-flight TDD gatekeeping before `aim promote`, and zero-fluff communication.
   * **Invisible Consumer Exoskeleton (`cmd_update`):** Downstream projects automatically `.gitignore` `joshua_os/`, `aim`, `workspace/`, and `archive/`, upgrading cleanly via atomic `os.replace` wrapper swaps without polluting product Git history.
 
+## 7. Cross-Platform GA, Four-Horizon Memory & Business Empire Convergence (`v1.0.0`–`v1.1.4`)
+* **The Concept:** Extending J.O.S.H.U.A. and its companion tools across Linux, macOS, WSL2, and native Windows 10/11 while converging `21/21` active co-agent and production business workspaces onto a single audited baseline.
+* **The Breakthroughs:**
+  * **Dual-OS & 6-Harness Parity (`v1.1.0`–`v1.1.4`):** Pure-Python `bootstrap_install.py`, PowerShell/CMD/Bash launchers (`aim`, `aim.ps1`, `aim.cmd`), relocated virtualenv shebang self-healing, and `register_mcp.py` auto-binding `search_lancedb` across Antigravity, Grok, Codex, OpenCode, Cursor, and Claude Code—backed by `71/71` unmocked + unit Pytest gates on `ubuntu-latest` and `windows-latest` (`BrianV1981/agy-joshua` archived into `aim-joshua`).
+  * **Four-Horizon Shared Brain (`#101`, `#110`, `#122`, `#130`, `#138`):** Direct-to-`main` `memory-wiki/` and `<12 KB` rolling-window `HANDOFF.md` batons paired with WAL-mode SQLite `FTS5` session notebooks (`./aim sessions`) and lock-serialized LanceDB + Tantivy BM25 (`768`-dim Google/OpenAI/Ollama parity + `1.5x` Proper-Noun `EntityIntersectionReranker`).
+  * **Cross-OS Maildir Post Office (`aim-mailbox` `v0.1.1`):** Zero-dependency pure-Python `os.replace()` Maildir replacing legacy `aim-chalkboard` with lock-free delivery across Windows 11 NTFS ↔ WSL2 `/mnt/c` (`9P`) and `<5ms` wake drivers across Desktop Sidecars, HTTP servers, CLIs, and `tmux`.
+  * **Daily Production Proof:** Powers full-scale commercial and personal systems held at `aim-auditor` Grade `A` / `A+` (`tbsoftwash.com` CRM + QBO + Academy, `skorbane.com` WaaS + Territory Ledger, `LeadDeeds` `110K`-LOC intelligence monorepo, `ayrianna.com` OCI Elasticsearch engine, and `aim-calendar` `154K`-vector exocortex).
+
 ---
 
-## The Master Protocol: The Tmux Buffer
-The entire ecosystem relies on a critical, hardcoded constraint for inter-agent communication: **The Tmux Buffer Protocol**.
-To prevent keystroke dropouts and interactive CLI prompts swallowing commands, agents are strictly forbidden from passing raw multi-line strings directly to `send-keys`. Instead, they must:
-1. Load the payload into the tmux clipboard: `tmux set-buffer "payload"`
-2. Paste via bracketed paste into the target session: `tmux paste-buffer -p -t <session>`
-3. Send the execute keys separately: `tmux send-keys -t <session> Escape Enter`
-
-This ensures that regardless of the underlying CLI (Agy, OpenCode, Codex), the "Phantom Keyboard" remains absolute and reliable.
+## The Master Protocol: Cross-OS `aim-mailbox` & Tmux `Enter`-Only Buffer
+Inter-agent communication evolved from POSIX-only `tmux` buffer pasting (`v1`) to **`aim-communicate` `v2.0` powered by `aim-mailbox` (`aim-mail`)** with POSIX `tmux` doorbell fallback:
+1. Durable envelopes are written atomically (`tmp/` → `unread/` → `claimed/` → `done/`) with mandatory `FROM`, `REPLY_TO`, Operator approval gates, and `1`-hop loop prevention.
+2. When waking or messaging an interactive `tmux` session directly, agents must **never** pass raw multi-line text to `send-keys` and must **never** send `Escape` before `Enter` (which wipes queued prompts in modern TUI harnesses):
+   - Load payload into the tmux buffer: `tmux set-buffer "payload"`
+   - Paste into the target session: `tmux paste-buffer -t <session>`
+   - Submit with `Enter` in a separate command: `tmux send-keys -t <session> Enter`

@@ -13,6 +13,7 @@
 * [[Philosophy_and_Concepts/A.I.M._vs_The_World|A.I.M. vs The World]]
 * [[Philosophy_and_Concepts/The-Great-Convergence:-From-Vessel-Fragmentation-to-J.O.S.H.U.A.|The Great Convergence]]
 * [[Philosophy_and_Concepts/J.O.S.H.U.A.-vs-The-Open-Source-Harness-Era-(Gemini-4-Argon-High-Audit,-October-2026)|J.O.S.H.U.A. vs Harness Era]]
+* [[Philosophy_and_Concepts/The-Outcome-Orchestrator-and-the-November-2026-A.I.M.-Ecosystem-Audit|The Outcome Orchestrator (Nov 2026 Audit)]]
 
 ## Official Repositories
 👉 **[J.O.S.H.U.A. Source Code](https://github.com/BrianV1981/aim-joshua)**
