@@ -1,6 +1,6 @@
 # The Outcome Orchestrator: Why Not Reading Code Became A.I.M.'s Unfair Advantage (November 2026 Ecosystem Audit)
 
-*Authored on November 22, 2026 | Engine Baseline: `aim-joshua` `v1.1.4` (`71/71` Dual-OS Pytest) & `aim-connect` `v1.8.0` (`160/160` Pytest) | Fleet Footprint: `21/21` Active Workspaces*
+*Authored on November 22, 2026 | Engine Baseline: `aim-joshua` `v1.1.4` (`71/71` Dual-OS Pytest) & `aim-connect` `v1.8.0` (`160/160` Pytest) | Fleet Footprint: `24+` Active Linux & Windows Workspaces*
 
 ---
 
@@ -10,7 +10,7 @@ On March 25, 2026—three days into building the first prototype of A.I.M.—[Th
 
 In the weeks since that October snapshot, two things happened simultaneously:
 1. **What A.I.M. pioneered eight months ago became industry common knowledge.** `git worktree` isolation, write-time Markdown "LLM Wikis," Model Context Protocol (MCP) hybrid search, mobile terminal remotes, and inter-agent mailboxes erupted across GitHub and Silicon Valley SaaS roadmaps.
-2. **A.I.M. crossed the threshold from "battle-tested experiment" into self-evolving daily business infrastructure.** Today, `aim-joshua` (`v1.1.4`, dual-OS Linux/macOS/WSL + native Windows 10/11), `aim-connect` (`v1.8.0`), `aim-memory` (`RAG 5.21`), `aim-mailbox` (`v0.1.1`), `aim-skill-library`, and `aim-coagents` run **21 converged local workspaces**—powering creator Brian Vasquez's primary source of income (`tbsoftwash.com`), a territory-exclusive agency (`skorbane.com`), a 110,000-line B2B data intelligence monorepo (`LeadDeeds`), a custom Oracle Cloud Elasticsearch directory (`ayrianna.com`), and a 154,000-vector personal communications exocortex (`aim-calendar`).
+2. **A.I.M. crossed the threshold from "battle-tested experiment" into self-evolving daily business and media infrastructure.** Today, `aim-joshua` (`v1.1.4`, dual-OS Linux/macOS/WSL + native Windows 10/11), `aim-connect` (`v1.8.0`), `aim-memory` (`RAG 5.21`), `aim-mailbox` (`v0.1.1`), `aim-skill-library`, and `aim-coagents` span **Linux bare metal and native Windows 11 + AMD Radeon ROCm workstations**—powering creator Brian Vasquez's primary source of income (`tbsoftwash.com`), a territory-exclusive agency (`skorbane.com`), a 110,000-line B2B data intelligence monorepo (`LeadDeeds`), a custom Oracle Cloud Elasticsearch directory (`ayrianna.com`), a 154,000-vector personal communications exocortex (`aim-calendar`), and **two zero-NLE programmatic broadcast & `4K` documentary studios** (*Philosophers After Dark* and *Human Field Journal* + `aim-social-studio`) shipping across YouTube, TikTok, X, and Rumble with zero manual video editing.
 
 Looking back across eight months of daily production use reveals an uncomfortable truth about AI software engineering—and answers a direct challenge: **has anyone else built and open-sourced an end-to-end system like this?**
 
@@ -73,11 +73,11 @@ Eight months ago, gluing persistent memory onto CLI coding agents felt fringe. B
 
 ---
 
-## 4. The Proof Is the Portfolio: Five Real Systems Built & Operated on A.I.M.
+## 4. The Proof Is the Portfolio: Six Production Domains Built & Operated on A.I.M.
 
 Skeptics routinely dismiss solo AI-built tools with a wave of the hand: *"Sure, any modern LLM could spit out a wrapper repo over a weekend."*
 
-Any frontier model *can* generate a weekend prototype. Almost none survive 30+ adversarial audit passes, multi-cloud deployments, and live customer transactions without succumbing to context rot. The empirical proof of A.I.M. is the production portfolio running on top of it every day:
+Any frontier model *can* generate a weekend prototype. Almost none survive 30+ adversarial audit passes, multi-cloud deployments, live customer transactions, and sub-millisecond `4K` broadcast compilation without succumbing to context rot. The empirical proof of A.I.M. is the production portfolio running on top of it every day:
 
 ### 1. `aim-tbsoftwash` (`tbsoftwash.com` & `academy.tbsoftwash.com`) — Primary Income Engine
 * **Audit Standing:** Pass 5 Grade **`A+`** (`93/93` offline smoke & guardrail checks, `0`-byte live rsync drift, `0` open defects).
@@ -98,6 +98,12 @@ Any frontier model *can* generate a weekend prototype. Almost none survive 30+ a
 ### 5. `aim-calendar` — Local-First Multimodal Communications Exocortex (`MIT`)
 * **Audit Standing:** Pass 3 Grade **`A`** (`32/32` pytest, `0` PII/secret leaks across full Git history, `193 GB` disk automatically reclaimed).
 * **What It Runs:** A chronological personal memory pipeline (`systemd` timer + `rclone`) that ingests Android SMS/MMS XML backups and `13,539` call recordings, interleaves speaker-diarized call transcripts into `2,093` Obsidian Daily Notes, embeds `154,612` searchable fragments into LanceDB (`talker_cartridge.lance`), and prunes superseded multi-gigabyte XML backups automatically.
+
+### 6. Zero-NLE "Video-as-Code" Broadcast Studios: *Philosophers After Dark*, *Human Field Journal* (`copy-cat`), & `aim-social-studio`
+* **Test & Production Standing:** **`234/234` passing `pytest` checks** across three Windows 11 + WSL2 J.O.S.H.U.A. repositories (`95/95` in `philosophers-after-dark`, `48/48` in `copy-cat`, `91/91` in `aim-social-studio`)—producing finished `11s` Super-Shorts, `75s` vertical Shorts, and `10–12.5 minute` native `4K UHD` documentaries with **zero Premiere Pro, zero DaVinci Resolve, zero CapCut, and zero manual timeline cutting or dragging**.
+* ***Philosophers After Dark* (`@PhilosophersAfterDark` — YouTube, TikTok, X, Rumble):** A multi-series animated satire & historical commentary studio (*Jefferson & Bastiat* `10/10` Season 1 episodes built, *Paine & Mason*, *Timeless Quotes* `9/9` Wave-1 Breakdowns + `18` stockpiled Shorts, and `40/40` catalog videos queued on Rumble). Manages `16` pre-1900 historical thinkers across `3` period sets, `SHA-256`-guarded non-destructive `silencedetect` speech trimming (`auto_edit.py`), custom **Wooden Study Room Glue** mastering (`7.2 kHz` de-ess, `11.5 kHz` ribbon-mic rolloff, `140 Hz` chest warmth, and `17|29 ms` prime-number mahogany early reflections at `-16 LUFS`), local `Real-ESRGAN` (`bfloat16`) neural upscaling on extended `20s` monologues, and simultaneous `16:9` widescreen + `9:16` Shorts + `3:4` (`1080×1440`) TikTok covers.
+* ***Human Field Journal* (`@HumanFieldJournal` / `copy-cat` — Native `4K` Curiosity Documentaries):** Evolved directly by auditing `philosophers-after-dark`'s codebase—inheriting `media_guard.py` and voice synthesis while *deliberately rejecting* `PAD`'s `7.9s` intro bumper and room echo after empirical 9-channel outlier data proved `0:00` sensory hooks and dry studio voiceovers maximize long-form retention. A single declarative JSON spec (`build_episode.py`) compiles `53–56` `1:1` sentence-locked `5504×3072` `4K` graphic-novel stills and hero clips into `10–12.5m` `4K` Release Masters (`Ep #01`–`#04` shipped) with **sub-frame A/V parity (`+0.00 ms` on Ep #03)** via `min(format_duration, v:0 stream duration)` PTS crossfade math—augmented at **`$0` credit cost** by Python-rendered `4K @ 30fps` primary-source animated data charts (`chart_renderer.py`, `1,823` LOC), stitched cyan-vs.-amber Dual X-Ray plates with `64–68 BPM` lub-dub cardiac luminescence, staged calorie/airflow sparks, `12` sepia Wikimedia scholar dossiers, and laser-reticle forensic magnifiers (`fx_renderer.py`).
+* **Bare-Metal `RX 9070 XT` Voice Cloning & `aim-social-studio` Spin-Off:** Both studios generate zero-drift narration locally at `$0` on an AMD Radeon `RX 9070 XT` (`Qwen3-TTS-12Hz-1.7B` with custom RDNA 4 `gfx1201` ROCm `eager`-attention HIP patches, `9` `3`-gear `calm`/`wry`/`fiery` philosopher voice banks + `@Julian` at `57.4 dB` SNR, and an automated `<= -40 dBFS` `has_eos_cliff()` speech-tail cutoff gate). Meanwhile, `PAD`'s local `UI-TARS-1.5-7B` + Win32 `#32770` uploader graduated into **`aim-social-studio`**—a standalone CLI, FastAPI Web UI, and MCP server (`81` synced catalog videos across `9` playlists) automating two-stage draft staging and scheduling across YouTube Studio, TikTok Studio, X, and Rumble Studio.
 
 ---
 
